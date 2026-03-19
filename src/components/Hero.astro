@@ -35,63 +35,221 @@
   ></div>
 
   <!-- Contenido -->
-  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24 lg:pt-40 lg:pb-32">
-    <div class="max-w-4xl">
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24 lg:pt-40 lg:pb-32 w-full">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-8">
-        <div class="w-2 h-2 rounded-full bg-[#F59E0B] animate-pulse"></div>
-        <span class="text-white/90 text-sm font-medium">Certificadora acreditada a nivel nacional</span>
+      <!-- ── Col izquierda: texto ── -->
+      <div>
+        <div id="hero-badge-pill" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-8">
+          <div class="w-2 h-2 rounded-full bg-[#F59E0B] animate-pulse"></div>
+          <span class="text-white/90 text-sm font-medium">Certificadora acreditada a nivel nacional</span>
+        </div>
+
+        <h1 id="hero-h1" class="text-white font-extrabold leading-tight mb-6"
+          style="font-size: clamp(2.25rem, 5vw, 3.5rem);">
+          Aliado estratégico para la
+          <span class="text-[#F59E0B]"> certificación</span> de productos
+          eléctricos y electrónicos
+        </h1>
+
+        <p id="hero-p" class="text-slate-300 text-lg leading-relaxed mb-10">
+          RETIE · RETILAP · RETIQ · Normas Voluntarias — Cobertura nacional.
+          Ofrecemos auditorías, pruebas de laboratorio y capacitación especializada
+          para garantizar el cumplimiento normativo de sus productos.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a
+            id="hero-cta-1"
+            href="#servicios"
+            class="inline-flex items-center gap-2 px-7 py-4 bg-[#F59E0B] hover:bg-[#FBBF24] text-[#0B1F4B] font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+          >
+            Ver Servicios
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </a>
+          <a
+            id="hero-cta-2"
+            href="#consulta"
+            class="inline-flex items-center gap-2 px-7 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/30 hover:border-white/50 transition-all duration-200 hover:-translate-y-0.5"
+          >
+            Consultar Certificados
+          </a>
+        </div>
+
+        <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-white/10">
+          {[
+            { value: 'RETIE',   label: 'Reglamento eléctrico'   },
+            { value: 'RETILAP', label: 'Iluminación y alumbrado' },
+            { value: 'RETIQ',   label: 'Etiquetado energético'   },
+            { value: 'NV',      label: 'Normas Voluntarias'      },
+          ].map(stat => (
+            <div class="hero-stat text-center">
+              <div class="text-[#F59E0B] font-extrabold text-2xl mb-1">{stat.value}</div>
+              <div class="text-slate-400 text-sm">{stat.label}</div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <!-- Headline -->
-      <h1 class="text-white font-extrabold leading-tight mb-6"
-        style="font-size: clamp(2.25rem, 5vw, 4rem);">
-        Aliado estratégico para la
-        <span class="text-[#F59E0B]"> certificación</span> de productos
-        eléctricos y electrónicos
-      </h1>
+      <!-- ── Col derecha: visual animado con GSAP ── -->
+      <!--
+        📸 SLOT DE IMAGEN — HERO
+        ─────────────────────────────────────────────────────────────
+        Cuando tengas tu foto, reemplaza TODO el bloque #hero-visual
+        (el <div id="hero-visual"> completo) por:
 
-      <!-- Subtexto -->
-      <p class="text-slate-300 text-lg lg:text-xl leading-relaxed mb-10 max-w-2xl">
-        RETIE · RETILAP · RETIQ · Normas Voluntarias — Cobertura nacional.
-        Ofrecemos auditorías, pruebas de laboratorio y capacitación especializada
-        para garantizar el cumplimiento normativo de sus productos.
-      </p>
-
-      <!-- CTAs -->
-      <div class="flex flex-wrap gap-4">
-        <a
-          href="#servicios"
-          class="inline-flex items-center gap-2 px-7 py-4 bg-[#F59E0B] hover:bg-[#FBBF24] text-[#0B1F4B] font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-        >
-          Ver Servicios
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-          </svg>
-        </a>
-        <a
-          href="#consulta"
-          class="inline-flex items-center gap-2 px-7 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/30 hover:border-white/50 transition-all duration-200 hover:-translate-y-0.5"
-        >
-          Consultar Certificados
-        </a>
-      </div>
-
-      <!-- Stats row -->
-      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-white/10">
-        {[
-          { value: 'RETIE', label: 'Reglamento eléctrico' },
-          { value: 'RETILAP', label: 'Iluminación y alumbrado' },
-          { value: 'RETIQ', label: 'Etiquetado energético' },
-          { value: 'NV', label: 'Normas Voluntarias' },
-        ].map(stat => (
-          <div class="text-center">
-            <div class="text-[#F59E0B] font-extrabold text-2xl mb-1">{stat.value}</div>
-            <div class="text-slate-400 text-sm">{stat.label}</div>
+          <div class="hidden lg:flex items-center justify-center">
+            <img
+              src="/images/hero.jpg"
+              alt="LLC Certificaciones — laboratorio y procesos"
+              class="w-full max-w-md rounded-2xl object-cover shadow-2xl"
+            />
           </div>
-        ))}
+
+        Tamaño recomendado: 600 × 720 px  (ratio 5:6)
+        ─────────────────────────────────────────────────────────────
+      -->
+      <div id="hero-visual" class="hidden lg:flex items-center justify-center" style="opacity:0">
+        <div class="relative w-full max-w-[400px] mx-auto" style="aspect-ratio: 5/6">
+
+          <!-- SVG: anillos + líneas de conexión -->
+          <svg
+            id="hero-svg"
+            class="absolute inset-0 w-full h-full"
+            viewBox="0 0 400 480"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!-- Anillo exterior (rota en sentido horario) -->
+            <circle
+              id="ring1"
+              cx="200" cy="240" r="188"
+              stroke="white" stroke-opacity="0.07"
+              stroke-width="1"
+              stroke-dasharray="5 10"
+            />
+            <!-- Anillo medio (rota en sentido antihorario) -->
+            <circle
+              id="ring2"
+              cx="200" cy="240" r="128"
+              stroke="white" stroke-opacity="0.12"
+              stroke-width="1"
+              stroke-dasharray="3 7"
+            />
+            <!-- Anillo interior -->
+            <circle
+              id="ring3"
+              cx="200" cy="240" r="70"
+              stroke="white" stroke-opacity="0.18"
+              stroke-width="1"
+            />
+
+            <!--
+              Líneas de conexión al sello central
+              ─────────────────────────────────────────────────────
+              viewBox = "0 0 400 480"  →  1 unit ≈ 1 CSS px a 400px ancho
+              Sello: centro (200,240), semiancho=56px (w-28/2)
+
+              Cálculo de badge en unidades SVG:
+               l0 RETIE   top:4%=19,  minW=118 → bottom=71, cx=200
+               l1 RETILAP top:25%=120, right:0, minW=114 → left=286, bottom=172
+               l2 RETIQ   bottom:10%→top=380, right:2%, minW=114 → left=278
+               l3 NV      cy:52%=250, left:0, minW=106 → right=106
+              ─────────────────────────────────────────────────────
+            -->
+
+            <!-- RETIE: sello borde-superior → borde inferior del badge -->
+            <line id="l0" x1="200" y1="184" x2="200" y2="71"
+              stroke="white" stroke-opacity="0.25" stroke-width="1"
+              stroke-dasharray="200" stroke-dashoffset="200"/>
+
+            <!-- RETILAP: sello borde-derecho → esquina inf-izq del badge -->
+            <line id="l1" x1="258" y1="216" x2="286" y2="172"
+              stroke="white" stroke-opacity="0.25" stroke-width="1"
+              stroke-dasharray="200" stroke-dashoffset="200"/>
+
+            <!-- RETIQ: sello borde-inferior → esquina sup-izq del badge -->
+            <line id="l2" x1="231" y1="296" x2="278" y2="380"
+              stroke="white" stroke-opacity="0.25" stroke-width="1"
+              stroke-dasharray="200" stroke-dashoffset="200"/>
+
+            <!-- NV: sello borde-izquierdo → borde derecho del badge (cy=250) -->
+            <line id="l3" x1="144" y1="240" x2="106" y2="249"
+              stroke="white" stroke-opacity="0.25" stroke-width="1"
+              stroke-dasharray="200" stroke-dashoffset="200"/>
+
+            <!-- Puntos decorativos en el anillo medio -->
+            <circle cx="200" cy="112" r="4" fill="#F59E0B" opacity="0.8"/>
+            <circle cx="328" cy="176" r="3" fill="white"   opacity="0.5"/>
+            <circle cx="316" cy="320" r="4" fill="#60A5FA" opacity="0.7"/>
+            <circle cx="85"  cy="285" r="3" fill="white"   opacity="0.4"/>
+          </svg>
+
+          <!-- Sello central LLC -->
+          <div
+            id="center-seal"
+            class="absolute"
+            style="top:50%; left:50%; transform:translate(-50%,-50%);"
+          >
+            <div class="w-28 h-28 rounded-2xl flex flex-col items-center justify-center shadow-2xl"
+              style="background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.05) 100%); border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(8px);">
+              <svg class="w-10 h-10 text-[#F59E0B] mb-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+              <span class="text-white font-black text-base tracking-tight leading-none">LLC</span>
+              <span class="text-white/50 text-[9px] font-semibold tracking-[0.2em] uppercase mt-0.5">Certif.</span>
+            </div>
+          </div>
+
+          <!-- Badge RETIE — arriba centro -->
+          <div id="badge-0" class="absolute" style="top:4%; left:50%; transform:translateX(-50%);">
+            <div class="px-4 py-2.5 rounded-xl text-center min-w-[118px]"
+              style="background:rgba(16,64,160,0.75); border:1px solid rgba(96,165,250,0.35); backdrop-filter:blur(6px);">
+              <div class="text-[#F59E0B] font-black text-sm leading-tight">RETIE</div>
+              <div class="text-white/55 text-[10px] font-medium mt-0.5">Instalaciones eléctricas</div>
+            </div>
+          </div>
+
+          <!-- Badge RETILAP — derecha -->
+          <div id="badge-1" class="absolute" style="top:25%; right:0;">
+            <div class="px-4 py-2.5 rounded-xl text-center min-w-[114px]"
+              style="background:rgba(120,53,15,0.7); border:1px solid rgba(251,191,36,0.35); backdrop-filter:blur(6px);">
+              <div class="text-[#FCD34D] font-black text-sm leading-tight">RETILAP</div>
+              <div class="text-white/55 text-[10px] font-medium mt-0.5">Iluminación</div>
+            </div>
+          </div>
+
+          <!-- Badge RETIQ — abajo derecha -->
+          <div id="badge-2" class="absolute" style="bottom:10%; right:2%;">
+            <div class="px-4 py-2.5 rounded-xl text-center min-w-[114px]"
+              style="background:rgba(6,78,59,0.7); border:1px solid rgba(52,211,153,0.35); backdrop-filter:blur(6px);">
+              <div class="text-emerald-300 font-black text-sm leading-tight">RETIQ</div>
+              <div class="text-white/55 text-[10px] font-medium mt-0.5">Eficiencia energética</div>
+            </div>
+          </div>
+
+          <!-- Badge Normas Voluntarias — izquierda -->
+          <div id="badge-3" class="absolute" style="top:52%; left:0; transform:translateY(-50%);">
+            <div class="px-4 py-2.5 rounded-xl text-center min-w-[106px]"
+              style="background:rgba(76,29,149,0.7); border:1px solid rgba(167,139,250,0.35); backdrop-filter:blur(6px);">
+              <div class="text-violet-300 font-black text-sm leading-tight">N. VOL.</div>
+              <div class="text-white/55 text-[10px] font-medium mt-0.5">Normas Voluntarias</div>
+            </div>
+          </div>
+
+          <!-- Partículas flotantes -->
+          <div id="p0" class="absolute w-2   h-2   rounded-full bg-[#F59E0B]/70" style="top:19%; left:16%;"></div>
+          <div id="p1" class="absolute w-1.5 h-1.5 rounded-full bg-white/45"      style="top:68%; left:76%;"></div>
+          <div id="p2" class="absolute w-2   h-2   rounded-full bg-blue-400/55"   style="top:42%; left:82%;"></div>
+          <div id="p3" class="absolute w-1   h-1   rounded-full bg-white/30"      style="top:80%; left:28%;"></div>
+          <div id="p4" class="absolute w-1.5 h-1.5 rounded-full bg-[#F59E0B]/50" style="top:36%; left:8%;"></div>
+
+        </div>
       </div>
+      <!-- fin #hero-visual -->
+
     </div>
   </div>
 
@@ -102,3 +260,91 @@
     </svg>
   </div>
 </section>
+
+<script>
+  import gsap from 'gsap';
+
+  // ─────────────────────────────────────────────
+  // Estados iniciales — todo invisible antes de animar
+  // ─────────────────────────────────────────────
+  gsap.set('#hero-badge-pill', { opacity: 0, y: -20 });
+  gsap.set('#hero-h1',         { opacity: 0, y: 35  });
+  gsap.set('#hero-p',          { opacity: 0, y: 25  });
+  gsap.set('#hero-cta-1',      { opacity: 0, y: 20, scale: 0.95 });
+  gsap.set('#hero-cta-2',      { opacity: 0, y: 20, scale: 0.95 });
+  gsap.set('.hero-stat',       { opacity: 0, y: 15  });
+
+  gsap.set('#hero-visual',                                { opacity: 0 });
+  gsap.set('#center-seal',                                { opacity: 0, scale: 0.3 });
+  gsap.set(['#badge-0','#badge-1','#badge-2','#badge-3'], { opacity: 0, scale: 0.6 });
+  gsap.set(['#p0','#p1','#p2','#p3','#p4'],              { opacity: 0 });
+
+  // ─────────────────────────────────────────────
+  // Timeline de entrada
+  // ─────────────────────────────────────────────
+  const tl = gsap.timeline({ delay: 0.25, defaults: { ease: 'power3.out' } });
+
+  tl.to('#hero-badge-pill', { opacity: 1, y: 0, duration: 0.55 })
+    .to('#hero-h1',          { opacity: 1, y: 0, duration: 0.70 }, '-=0.30')
+    .to('#hero-p',           { opacity: 1, y: 0, duration: 0.60 }, '-=0.40')
+    .to('#hero-cta-1',       { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: 'back.out(1.5)' }, '-=0.25')
+    .to('#hero-cta-2',       { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: 'back.out(1.5)' }, '-=0.35')
+    .to('.hero-stat',        { opacity: 1, y: 0, duration: 0.35, stagger: 0.09 }, '-=0.20')
+
+    .to('#hero-visual', { opacity: 1, duration: 0.40 }, 0.50)
+    .to('#center-seal', { opacity: 1, scale: 1, duration: 0.85, ease: 'back.out(1.8)' }, 0.65)
+    .to(['#l0','#l1','#l2','#l3'], {
+        strokeDashoffset: 0,
+        duration: 0.75,
+        stagger: 0.10,
+        ease: 'power2.inOut',
+      }, 0.95)
+    .to(['#badge-0','#badge-1','#badge-2','#badge-3'], {
+        opacity: 1, scale: 1,
+        duration: 0.50,
+        stagger: 0.13,
+        ease: 'back.out(1.6)',
+      }, 1.15)
+    .to(['#p0','#p1','#p2','#p3','#p4'], {
+        opacity: 1,
+        duration: 0.40,
+        stagger: 0.08,
+      }, 1.45);
+
+  // ─────────────────────────────────────────────
+  // Animaciones continuas (loop infinito)
+  // ─────────────────────────────────────────────
+  gsap.to('#badge-0', { y: -11, duration: 2.6, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1.60 });
+  gsap.to('#badge-1', { y:  -8, duration: 3.1, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1.90 });
+  gsap.to('#badge-2', { y: -13, duration: 2.3, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2.10 });
+  gsap.to('#badge-3', { y:  -9, duration: 2.9, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1.75 });
+
+  gsap.to('#center-seal > div', {
+    scale: 1.05,
+    duration: 2.2,
+    repeat: -1, yoyo: true,
+    ease: 'sine.inOut',
+    delay: 1.80,
+  });
+
+  gsap.to('#ring1', {
+    rotation: 360,
+    transformOrigin: '200px 240px',
+    duration: 22,
+    repeat: -1,
+    ease: 'none',
+  });
+  gsap.to('#ring2', {
+    rotation: -360,
+    transformOrigin: '200px 240px',
+    duration: 16,
+    repeat: -1,
+    ease: 'none',
+  });
+
+  gsap.to('#p0', { y: -14, x:  7, duration: 3.2, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2.00 });
+  gsap.to('#p1', { y:  11, x: -6, duration: 2.7, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2.30 });
+  gsap.to('#p2', { y: -10, x: -9, duration: 3.6, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1.85 });
+  gsap.to('#p3', { y:   9, x:  5, duration: 2.9, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2.55 });
+  gsap.to('#p4', { y: -12, x:  8, duration: 3.0, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2.15 });
+</script>
