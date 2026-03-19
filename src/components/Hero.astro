@@ -1,0 +1,104 @@
+---
+---
+
+<section
+  id="inicio"
+  class="relative min-h-screen flex items-center overflow-hidden"
+  style="background: linear-gradient(135deg, #0B1F4B 0%, #0D2860 50%, #1040A0 100%);"
+>
+  <!-- Patrón geométrico SVG de fondo -->
+  <div class="absolute inset-0 opacity-[0.07]" aria-hidden="true">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" stroke-width="1"/>
+        </pattern>
+        <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+          <circle cx="15" cy="15" r="1.5" fill="white"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)"/>
+      <rect width="100%" height="100%" fill="url(#dots)"/>
+    </svg>
+  </div>
+
+  <!-- Efecto radial de luz -->
+  <div
+    class="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-10"
+    style="background: radial-gradient(circle, #1E6FE8 0%, transparent 70%); transform: translate(30%, -30%);"
+    aria-hidden="true"
+  ></div>
+  <div
+    class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-10"
+    style="background: radial-gradient(circle, #F59E0B 0%, transparent 70%); transform: translate(-30%, 30%);"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Contenido -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24 lg:pt-40 lg:pb-32">
+    <div class="max-w-4xl">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-8">
+        <div class="w-2 h-2 rounded-full bg-[#F59E0B] animate-pulse"></div>
+        <span class="text-white/90 text-sm font-medium">Certificadora acreditada a nivel nacional</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-white font-extrabold leading-tight mb-6"
+        style="font-size: clamp(2.25rem, 5vw, 4rem);">
+        Aliado estratégico para la
+        <span class="text-[#F59E0B]"> certificación</span> de productos
+        eléctricos y electrónicos
+      </h1>
+
+      <!-- Subtexto -->
+      <p class="text-slate-300 text-lg lg:text-xl leading-relaxed mb-10 max-w-2xl">
+        RETIE · RETILAP · RETIQ · Normas Voluntarias — Cobertura nacional.
+        Ofrecemos auditorías, pruebas de laboratorio y capacitación especializada
+        para garantizar el cumplimiento normativo de sus productos.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-4">
+        <a
+          href="#servicios"
+          class="inline-flex items-center gap-2 px-7 py-4 bg-[#F59E0B] hover:bg-[#FBBF24] text-[#0B1F4B] font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+        >
+          Ver Servicios
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
+        <a
+          href="#consulta"
+          class="inline-flex items-center gap-2 px-7 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/30 hover:border-white/50 transition-all duration-200 hover:-translate-y-0.5"
+        >
+          Consultar Certificados
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-white/10">
+        {[
+          { value: 'RETIE', label: 'Reglamento eléctrico' },
+          { value: 'RETILAP', label: 'Iluminación y alumbrado' },
+          { value: 'RETIQ', label: 'Etiquetado energético' },
+          { value: 'NV', label: 'Normas Voluntarias' },
+        ].map(stat => (
+          <div class="text-center">
+            <div class="text-[#F59E0B] font-extrabold text-2xl mb-1">{stat.value}</div>
+            <div class="text-slate-400 text-sm">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Wave bottom -->
+  <div class="absolute bottom-0 left-0 right-0" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0 60L1440 60L1440 30C1200 60 960 0 720 20C480 40 240 10 0 30L0 60Z" fill="white"/>
+    </svg>
+  </div>
+</section>
