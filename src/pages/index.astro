@@ -39,19 +39,25 @@ import Footer from '../components/Footer.astro';
 
   if (!prefersReducedMotion && sections.length) {
     sections.forEach(function(section) {
-      gsap.set(section, { opacity: 0, y: 56 });
-
-      gsap.to(section, {
-        opacity: 1,
-        y: 0,
-        duration: 0.85,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: section,
-          start: 'top 82%',
-          once: true,
+      gsap.fromTo(section,
+        {
+          opacity: 0,
+          y: 110,
+          scale: 0.97,
         },
-      });
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 92%',
+            end: 'top 58%',
+            scrub: 1.1,
+          },
+        }
+      );
     });
   }
 </script>

@@ -108,7 +108,7 @@
         </p>
 
         <!-- Deck container -->
-        <div id="card-deck" class="relative w-full max-w-[340px]" style="height:440px; perspective:1200px;">
+        <div id="card-deck" class="relative w-full max-w-[380px] xl:max-w-[400px]" style="height:490px; perspective:1200px;">
 
           <!-- ── CARTA 0: RETIE ── -->
           <div class="cert-card absolute inset-0 select-none" data-idx="0"
@@ -379,6 +379,8 @@
   var isAnimating = false;
   var wasDragged  = false;
   var drags: Draggable[] = [];
+  var autoplayTimer: number | undefined;
+  var AUTOPLAY_DELAY = 3000;
 
   // Posiciones de apilado para cada slot (0 = tope)
   var STACK = [
@@ -407,6 +409,29 @@
     }
     setupDrag();
     updateDots();
+    scheduleAutoplay();
+  }
+
+  function clearAutoplay() {
+    if (autoplayTimer !== undefined) {
+      window.clearTimeout(autoplayTimer);
+      autoplayTimer = undefined;
+    }
+  }
+
+  function scheduleAutoplay() {
+    clearAutoplay();
+
+    autoplayTimer = window.setTimeout(function() {
+      if (!isAnimating && cards.length) {
+        throwCard(1);
+      }
+    }, AUTOPLAY_DELAY);
+  }
+
+  function registerUserInteraction() {
+    clearAutoplay();
+    scheduleAutoplay();
   }
 
   function setupDrag() {
@@ -424,7 +449,10 @@
       type: 'x',
       edgeResistance: 0.55,
       minimumMovement: 8,
-      onDragStart: function() { wasDragged = false; },
+      onDragStart: function() {
+        wasDragged = false;
+        registerUserInteraction();
+      },
       onDrag: function() {
         wasDragged = true;
         var rot = (this.x / 260) * 20;
@@ -436,6 +464,7 @@
           throwCard(this.x > 0 ? 1 : -1);
         } else {
           gsap.to(topCard, { x: 0, rotation: 0, duration: 0.5, ease: 'back.out(2.2)' });
+          scheduleAutoplay();
         }
       },
     });
@@ -496,6 +525,7 @@
         isAnimating = false;
         updateDots();
         setupDrag();
+        scheduleAutoplay();
       },
     });
   }
@@ -516,6 +546,7 @@
     card.addEventListener('click', function() {
       if (wasDragged) { wasDragged = false; return; }
       if (order[0] !== i) return;
+      registerUserInteraction();
       card.classList.toggle('is-flipped');
     });
   });
