@@ -71,7 +71,7 @@
           </a>
           <a
             id="hero-cta-2"
-            href="#consulta"
+            href="/certificados"
             class="inline-flex items-center gap-2 px-7 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/30 hover:border-white/50 transition-all duration-200 hover:-translate-y-0.5"
           >
             Consultar Certificados
@@ -374,11 +374,11 @@
     .add(initDeck, 0.80);
 
   // ─── Card Deck ────────────────────────────────────────────────────────
-  var cards       = Array.from(document.querySelectorAll('.cert-card'));
+  var cards       = Array.from(document.querySelectorAll<HTMLElement>('.cert-card'));
   var order       = [0, 1, 2, 3];  // order[0] = índice de la carta en el tope
   var isAnimating = false;
   var wasDragged  = false;
-  var drags       = [];
+  var drags: Draggable[] = [];
 
   // Posiciones de apilado para cada slot (0 = tope)
   var STACK = [
@@ -389,6 +389,8 @@
   ];
 
   function initDeck() {
+    if (!cards.length) return;
+
     order.forEach(function(cardIdx, slot) {
       var s = STACK[slot];
       gsap.set(cards[cardIdx], { x: 0, y: s.y, rotation: s.rotation, scale: s.scale, opacity: s.opacity, zIndex: s.zIndex });
@@ -408,12 +410,15 @@
   }
 
   function setupDrag() {
+    if (!cards.length) return;
+
     drags.forEach(function(d) { d.kill(); });
     drags = [];
     wasDragged = false;
 
     var topIdx  = order[0];
     var topCard = cards[topIdx];
+    if (!topCard) return;
 
     drags = Draggable.create(topCard, {
       type: 'x',
@@ -436,12 +441,16 @@
     });
   }
 
-  function throwCard(dir) {
-    if (isAnimating) return;
+  function throwCard(dir: number) {
+    if (isAnimating || !cards.length) return;
     isAnimating = true;
 
     var topIdx  = order[0];
     var topCard = cards[topIdx];
+    if (!topCard) {
+      isAnimating = false;
+      return;
+    }
 
     // Quitar flip si está dado vuelta
     topCard.classList.remove('is-flipped');
@@ -449,8 +458,9 @@
     drags.forEach(function(d) { d.kill(); });
     drags = [];
 
-    // Las cartas detrás suben un slot mientras la tope sale
-    for (var slot = 1; slot <= 2; slot++) {
+    // Las cartas detrás suben un slot mientras la tope sale.
+    // Incluimos también la del fondo para conservar 3 cartas visibles en el deck.
+    for (var slot = 1; slot <= 3; slot++) {
       var next = STACK[slot - 1];
       gsap.to(cards[order[slot]], {
         y: next.y, rotation: next.rotation, scale: next.scale,
@@ -469,6 +479,10 @@
       ease: 'power2.in',
       onComplete: function() {
         var moved = order.shift();
+        if (moved === undefined) {
+          isAnimating = false;
+          return;
+        }
         order.push(moved);
 
         // Resetear la carta que fue al fondo
@@ -487,7 +501,9 @@
   }
 
   function updateDots() {
-    var dots = document.querySelectorAll('.deck-dot');
+    var dots = document.querySelectorAll<HTMLElement>('.deck-dot');
+    if (!dots.length) return;
+
     dots.forEach(function(dot, i) {
       var active = (order[0] === i);
       dot.style.width   = active ? '20px' : '8px';

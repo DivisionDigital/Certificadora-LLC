@@ -1,0 +1,305 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const steps = [
+  {
+    num: 1,
+    title: 'Accede a SICERCO',
+    desc: 'Ingresa al portal oficial del sistema de certificación de la Superintendencia de Industria y Comercio.',
+    link: { label: 'Ir a SICERCO', url: 'https://sicerco.sic.gov.co/sicerco/index.xhtml?faces-redirect=true' },
+  },
+  {
+    num: 2,
+    title: 'Menú principal',
+    desc: 'Haz clic en la opción "Consulta Pública Ciudadano" en el menú principal del portal.',
+    link: null,
+  },
+  {
+    num: 3,
+    title: 'Sección Certificados',
+    desc: 'Dirígete al menú "Certificados" dentro del módulo de consulta pública.',
+    link: null,
+  },
+  {
+    num: 4,
+    title: 'Administración de certificado',
+    desc: 'Haz clic en "Administración de certificado" para acceder al buscador de certificados.',
+    link: null,
+  },
+  {
+    num: 5,
+    title: 'Ingresa el número de certificado',
+    desc: 'Digita el número de certificado que aparece en la parte inferior izquierda del documento entregado por LLC.',
+    link: null,
+  },
+  {
+    num: 6,
+    title: 'Verifica tu certificado',
+    desc: 'El sistema mostrará la información completa y el estado vigente de tu certificado de conformidad de producto.',
+    link: null,
+  },
+];
+---
+
+<Layout
+  title="Certificados — LLC Certificaciones"
+  description="Consulta el certificado de acreditación ONAC de LLC y verifica la vigencia de tu certificado de conformidad de producto a través de SICERCO."
+>
+  <Header />
+
+  <!-- ═══ Hero banner ═══ -->
+  <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden"
+    style="background: linear-gradient(135deg, #0B1F4B 0%, #0D2860 50%, #1040A0 100%);">
+    <div class="absolute inset-0 opacity-[0.05]" aria-hidden="true">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid-c" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid-c)"/>
+      </svg>
+    </div>
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-10"
+      style="background:radial-gradient(circle,#1E6FE8 0%,transparent 70%); transform:translate(30%,-40%);"
+      aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+      <nav class="flex items-center gap-2 text-sm mb-8">
+        <a href="/" class="text-slate-400 hover:text-white transition-colors">Inicio</a>
+        <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+        </svg>
+        <span class="text-white font-medium">Certificados</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
+          <svg class="w-4 h-4 text-[#F59E0B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/>
+          </svg>
+          <span class="text-white/90 text-sm font-medium">Acreditación ONAC vigente</span>
+        </div>
+        <h1 class="text-white font-extrabold leading-tight mb-5"
+          style="font-size: clamp(2.25rem, 5vw, 3.25rem);">
+          Transparencia y <span class="text-[#F59E0B]">confianza</span> en cada certificado
+        </h1>
+        <p class="text-slate-300 text-lg leading-relaxed max-w-2xl">
+          Consulta nuestra acreditación ONAC y verifica la vigencia de tu certificado de conformidad de producto emitido por LLC.
+        </p>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 60L1440 60L1440 30C1200 60 960 0 720 20C480 40 240 10 0 30L0 60Z" fill="white"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══ Sección 1: Nuestro certificado ONAC ═══ -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        <!-- Texto -->
+        <div>
+          <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[#1040A0] bg-[#DBEAFE] mb-5">
+            Acreditación
+          </span>
+          <h2 class="text-[#0F172A] font-bold leading-tight mb-5"
+            style="font-size: clamp(1.75rem, 3vw, 2.25rem);">
+            Nuestro certificado de acreditación ONAC
+          </h2>
+          <p class="text-[#334155] leading-relaxed mb-6">
+            LLC Certificaciones cuenta con la acreditación del
+            <strong class="text-[#0F172A]">Organismo Nacional de Acreditación de Colombia (ONAC)</strong>
+            bajo la norma ISO/IEC 17065, lo que nos habilita para emitir certificados de conformidad
+            de producto con plena validez legal en el territorio nacional.
+          </p>
+          <ul class="space-y-3 mb-8">
+            {[
+              'Acreditación vigente bajo ISO/IEC 17065',
+              'Autorizado para certificar bajo RETIE, RETILAP y RETIQ',
+              'Supervisado por la Superintendencia de Industria y Comercio',
+              'Certificados con validez jurídica nacional',
+            ].map(item => (
+              <li class="flex items-start gap-3 text-[#334155] text-sm">
+                <svg class="w-5 h-5 text-[#1040A0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a
+            href="https://llccolombia.com/wp-content/uploads/2024/01/23-CPR-004-Actualizado.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-7 py-4 bg-[#1040A0] hover:bg-[#1A56C8] text-white font-bold rounded-xl transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+            </svg>
+            Ver certificado completo
+          </a>
+        </div>
+
+        <!-- Card visual del certificado -->
+        <div class="flex justify-center">
+          <div class="relative w-full max-w-sm">
+            <!-- Sombra decorativa detrás -->
+            <div class="absolute -bottom-3 -right-3 w-full h-full rounded-2xl bg-[#1040A0]/10 border border-[#1040A0]/15"></div>
+            <div class="relative rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-xl bg-white">
+              <!-- Header del certificado -->
+              <div class="px-8 pt-8 pb-6 text-center border-b border-[#E2E8F0]"
+                style="background: linear-gradient(160deg, #0B1F4B 0%, #1040A0 100%);">
+                <div class="w-16 h-16 rounded-2xl bg-[#F59E0B] flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-9 h-9 text-[#0B1F4B]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </div>
+                <div class="text-white font-black text-xl tracking-tight">LLC Certificaciones</div>
+                <div class="text-white/60 text-xs font-medium mt-1 tracking-widest uppercase">Organismo de Certificación</div>
+              </div>
+              <!-- Cuerpo -->
+              <div class="px-8 py-6 space-y-4">
+                <div class="flex justify-between items-center py-3 border-b border-[#F1F5F9]">
+                  <span class="text-[#64748B] text-xs font-medium">Norma</span>
+                  <span class="text-[#0F172A] text-sm font-semibold">ISO/IEC 17065</span>
+                </div>
+                <div class="flex justify-between items-center py-3 border-b border-[#F1F5F9]">
+                  <span class="text-[#64748B] text-xs font-medium">Organismo</span>
+                  <span class="text-[#0F172A] text-sm font-semibold">ONAC</span>
+                </div>
+                <div class="flex justify-between items-center py-3 border-b border-[#F1F5F9]">
+                  <span class="text-[#64748B] text-xs font-medium">Código</span>
+                  <span class="text-[#1040A0] text-sm font-bold">23-CPR-004</span>
+                </div>
+                <div class="flex justify-between items-center py-3">
+                  <span class="text-[#64748B] text-xs font-medium">Estado</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700">Vigente</span>
+                </div>
+              </div>
+              <div class="px-8 pb-6">
+                <a
+                  href="https://llccolombia.com/wp-content/uploads/2024/01/23-CPR-004-Actualizado.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold text-[#1040A0] bg-[#DBEAFE] hover:bg-[#1040A0] hover:text-white transition-all duration-200"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+                  </svg>
+                  Descargar PDF
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Sección 2: Consulta tu certificado ═══ -->
+  <section class="py-20 lg:py-28 bg-[#F8FAFC]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+      <div class="text-center mb-14">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[#F59E0B] bg-[#FEF3C7] mb-4">
+          Verificación
+        </span>
+        <h2 class="text-[#0F172A] font-bold leading-tight" style="font-size: clamp(1.75rem, 3.5vw, 2.25rem);">
+          Consulta tu certificado
+        </h2>
+        <p class="text-[#64748B] mt-3 max-w-2xl mx-auto">
+          Verifica la vigencia y autenticidad de tu certificado de conformidad de producto a través del portal oficial SICERCO de la SIC.
+        </p>
+      </div>
+
+      <!-- Pasos -->
+      <div class="max-w-4xl mx-auto">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+          {steps.map(step => (
+            <div class="group bg-white rounded-2xl p-6 border border-[#E2E8F0] hover:border-[#1040A0]/25 hover:shadow-md transition-all duration-200">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-8 rounded-lg bg-[#1040A0] flex items-center justify-center flex-shrink-0">
+                  <span class="text-white font-black text-sm">{step.num}</span>
+                </div>
+                <h3 class="text-[#0F172A] font-semibold text-sm">{step.title}</h3>
+              </div>
+              <p class="text-[#64748B] text-sm leading-relaxed mb-3">{step.desc}</p>
+              {step.link && (
+                <a
+                  href={step.link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-[#1040A0] hover:text-[#1A56C8] text-xs font-semibold transition-colors"
+                >
+                  {step.link.label}
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+                  </svg>
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <!-- CTA al portal -->
+        <div class="rounded-2xl p-8 text-center border border-[#1040A0]/15"
+          style="background: linear-gradient(135deg, rgba(16,64,160,0.05) 0%, rgba(30,111,232,0.05) 100%);">
+          <p class="text-[#334155] mb-5 text-sm">
+            ¿Tienes el número de tu certificado listo? Accede directamente al portal de verificación oficial.
+          </p>
+          <a
+            href="https://sicerco.sic.gov.co/sicerco/index.xhtml?faces-redirect=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-7 py-4 bg-[#1040A0] hover:bg-[#1A56C8] text-white font-bold rounded-xl transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+            </svg>
+            Verificar en SICERCO
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Dato importante ═══ -->
+  <section class="py-16 lg:py-20"
+    style="background: linear-gradient(135deg, #0B1F4B 0%, #1040A0 100%);">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F59E0B]/15 border border-[#F59E0B]/30 mb-6">
+          <svg class="w-4 h-4 text-[#F59E0B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/>
+          </svg>
+          <span class="text-[#F59E0B] text-sm font-semibold">Dato importante</span>
+        </div>
+        <p class="text-white text-lg lg:text-xl leading-relaxed mb-8">
+          Para la evaluación de conformidad de tu producto según
+          <strong class="text-[#F59E0B]">Esquema 5 RETIE</strong>, debes tener tu Sistema de
+          Gestión de la Calidad certificado. Consulta el reglamento
+          <strong class="text-[#F59E0B]">4.2.7.3 Esquema 5 RETIE</strong>.
+        </p>
+        <a
+          href="tel:3108369861"
+          class="inline-flex items-center gap-2 px-7 py-4 bg-[#F59E0B] hover:bg-[#FBBF24] text-[#0B1F4B] font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          Si tienes dudas: 310 836 9861
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

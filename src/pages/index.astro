@@ -21,3 +21,37 @@ import Footer from '../components/Footer.astro';
   <CTA />
   <Footer />
 </Layout>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sections = ['#noticias', '#servicios', '#nosotros', '#contacto']
+    .map(function(selector) {
+      return document.querySelector<HTMLElement>(selector);
+    })
+    .filter(function(section): section is HTMLElement {
+      return section !== null;
+    });
+
+  if (!prefersReducedMotion && sections.length) {
+    sections.forEach(function(section) {
+      gsap.set(section, { opacity: 0, y: 56 });
+
+      gsap.to(section, {
+        opacity: 1,
+        y: 0,
+        duration: 0.85,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 82%',
+          once: true,
+        },
+      });
+    });
+  }
+</script>

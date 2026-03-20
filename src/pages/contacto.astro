@@ -1,0 +1,384 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const contactItems = [
+  {
+    label: 'Teléfono',
+    title: '310 836 9861',
+    description: 'Atención comercial y acompañamiento para procesos de certificación.',
+    href: 'tel:3108369861',
+    action: 'Llamar ahora',
+    icon: 'phone',
+    accent: '#1040A0',
+    badgeBg: '#DBEAFE',
+    badgeText: '#1040A0',
+  },
+  {
+    label: 'Correo electrónico',
+    title: 'sac@llccolombia.com',
+    description: 'Envíanos tu consulta o la información inicial de tu producto.',
+    href: 'mailto:sac@llccolombia.com',
+    action: 'Escribir correo',
+    icon: 'mail',
+    accent: '#F59E0B',
+    badgeBg: '#FEF3C7',
+    badgeText: '#92400E',
+  },
+  {
+    label: 'Ubicación',
+    title: 'Carrera 12 #17-94 Oficina 301',
+    description: 'Bogotá, D.C. Atención a empresas fabricantes e importadores a nivel nacional.',
+    href: 'https://maps.google.com/?q=Carrera+12+%2317-94+Oficina+301+Bogota',
+    action: 'Ver en mapa',
+    icon: 'location',
+    accent: '#1E6FE8',
+    badgeBg: '#DBEAFE',
+    badgeText: '#1040A0',
+  },
+  {
+    label: 'Horario de atención',
+    title: 'Lunes a viernes',
+    description: 'Atendemos de 7:00 a. m. a 5:30 p. m. para solicitudes y seguimiento comercial.',
+    href: 'tel:3108369861',
+    action: 'Hablar con un asesor',
+    icon: 'clock',
+    accent: '#0B1F4B',
+    badgeBg: '#E2E8F0',
+    badgeText: '#334155',
+  },
+];
+
+function iconPath(icon: string) {
+  if (icon === 'phone') {
+    return 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z';
+  }
+
+  if (icon === 'mail') {
+    return 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z';
+  }
+
+  if (icon === 'location') {
+    return 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z';
+  }
+
+  return 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z';
+}
+---
+
+<Layout
+  title="Contacto — LLC Certificaciones"
+  description="Contáctanos para iniciar tu proceso de certificación RETIE, RETILAP, RETIQ o normas voluntarias. Atención en Bogotá y cobertura nacional."
+>
+  <Header />
+
+  <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden" style="background: linear-gradient(135deg, #0B1F4B 0%, #0D2860 50%, #1040A0 100%);">
+    <div class="absolute inset-0 opacity-[0.05]" aria-hidden="true">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid-contact" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid-contact)"/>
+      </svg>
+    </div>
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-10" style="background:radial-gradient(circle,#1E6FE8 0%,transparent 70%); transform:translate(30%,-40%);" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+      <nav class="flex items-center gap-2 text-sm mb-8">
+        <a href="/" class="text-slate-400 hover:text-white transition-colors">Inicio</a>
+        <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+        </svg>
+        <span class="text-white font-medium">Contacto</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
+          <svg class="w-4 h-4 text-[#F59E0B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <span class="text-white/90 text-sm font-medium">Atención comercial y soporte</span>
+        </div>
+        <h1 class="text-white font-extrabold leading-tight mb-5" style="font-size: clamp(2.25rem, 5vw, 3.25rem);">
+          Hablemos sobre la <span class="text-[#F59E0B]">certificación</span> de tu producto
+        </h1>
+        <p class="text-slate-300 text-lg leading-relaxed max-w-2xl">
+          Te acompañamos desde la consulta inicial hasta la definición del esquema más adecuado para tu proceso de evaluación de conformidad.
+        </p>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 60L1440 60L1440 30C1200 60 960 0 720 20C480 40 240 10 0 30L0 60Z" fill="white"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-10 items-start">
+        <div>
+          <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[#1040A0] bg-[#DBEAFE] mb-5">
+            Canales de atención
+          </span>
+          <h2 class="text-[#0F172A] font-bold leading-tight mb-4" style="font-size: clamp(1.75rem, 3vw, 2.25rem);">
+            Estamos disponibles para resolver tu solicitud
+          </h2>
+          <p class="text-[#64748B] leading-relaxed max-w-2xl mb-10">
+            Tomamos como referencia la información publicada en la web actual de LLC para mantener consistencia en datos de contacto, horario y ubicación, integrándola al diseño corporativo de esta nueva versión.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            {contactItems.map((item) => (
+              <a
+                href={item.href}
+                target={item.icon === 'location' ? '_blank' : undefined}
+                rel={item.icon === 'location' ? 'noopener noreferrer' : undefined}
+                class="group rounded-2xl border border-[#E2E8F0] p-6 hover:border-[#1040A0]/30 hover:shadow-lg transition-all duration-200 bg-white"
+              >
+                <div class="flex items-start gap-4 mb-5">
+                  <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={`background:${item.badgeBg};`}>
+                    <svg class="w-5 h-5" style={`color:${item.accent};`} fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d={iconPath(item.icon)} />
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="inline-block px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase mb-2" style={`background:${item.badgeBg}; color:${item.badgeText};`}>
+                      {item.label}
+                    </span>
+                    <h3 class="text-[#0F172A] font-semibold text-base leading-snug group-hover:text-[#1040A0] transition-colors">
+                      {item.title}
+                    </h3>
+                  </div>
+                </div>
+                <p class="text-[#64748B] text-sm leading-relaxed mb-5">
+                  {item.description}
+                </p>
+                <div class="flex items-center gap-2 text-sm font-semibold text-[#1040A0]">
+                  {item.action}
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-150" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                  </svg>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-sm bg-[#F8FAFC]">
+          <div class="px-8 pt-8 pb-6" style="background: linear-gradient(160deg, #0B1F4B 0%, #1040A0 100%);">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/85 text-xs font-semibold uppercase tracking-wider mb-4">
+              Formulario de contacto
+            </span>
+            <h3 class="text-white font-bold text-2xl mb-3">
+              Escríbenos por WhatsApp
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Completa tus datos y prepararemos un mensaje con la información clave para iniciar la conversación con nuestro equipo.
+            </p>
+          </div>
+
+          <div class="p-8">
+            <form id="contact-whatsapp-form" class="space-y-5">
+              <div>
+                <label for="contact-name" class="block text-sm font-semibold text-[#0F172A] mb-2">
+                  Nombre
+                </label>
+                <input
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  required
+                  class="w-full rounded-xl border border-[#CBD5E1] bg-white px-4 py-3 text-sm text-[#0F172A] outline-none transition-colors duration-200 focus:border-[#1040A0]"
+                  placeholder="Tu nombre o el de tu empresa"
+                />
+              </div>
+
+              <div>
+                <label for="contact-phone" class="block text-sm font-semibold text-[#0F172A] mb-2">
+                  Teléfono de contacto
+                </label>
+                <input
+                  id="contact-phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  class="w-full rounded-xl border border-[#CBD5E1] bg-white px-4 py-3 text-sm text-[#0F172A] outline-none transition-colors duration-200 focus:border-[#1040A0]"
+                  placeholder="310 000 0000"
+                />
+              </div>
+
+              <div>
+                <label for="contact-email" class="block text-sm font-semibold text-[#0F172A] mb-2">
+                  Email
+                </label>
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  required
+                  class="w-full rounded-xl border border-[#CBD5E1] bg-white px-4 py-3 text-sm text-[#0F172A] outline-none transition-colors duration-200 focus:border-[#1040A0]"
+                  placeholder="tucorreo@empresa.com"
+                />
+              </div>
+
+              <div>
+                <label for="contact-description" class="block text-sm font-semibold text-[#0F172A] mb-2">
+                  Descripción
+                </label>
+                <textarea
+                  id="contact-description"
+                  name="description"
+                  required
+                  rows="5"
+                  class="w-full rounded-xl border border-[#CBD5E1] bg-white px-4 py-3 text-sm text-[#0F172A] outline-none transition-colors duration-200 focus:border-[#1040A0]"
+                  placeholder="Cuéntanos qué producto deseas certificar o en qué proceso necesitas apoyo"
+                ></textarea>
+              </div>
+
+              <div class="rounded-2xl border border-[#1040A0]/15 p-5" style="background: linear-gradient(135deg, rgba(16,64,160,0.05) 0%, rgba(30,111,232,0.05) 100%);">
+                <p class="text-[#334155] text-sm leading-relaxed">
+                  Al enviar, se abrirá WhatsApp con un mensaje prellenado para que puedas contactar a LLC de forma inmediata.
+                </p>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-3">
+                <button
+                  type="submit"
+                  class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#1040A0] hover:bg-[#1A56C8] text-white font-bold rounded-xl transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer"
+                >
+                  Enviar por WhatsApp
+                </button>
+                <a
+                  href="mailto:sac@llccolombia.com"
+                  class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-[#1040A0] font-semibold rounded-xl border border-[#1040A0]/20 hover:bg-[#DBEAFE] transition-all duration-200"
+                >
+                  Escribir por correo
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-24 bg-[#F8FAFC]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-8 items-stretch">
+        <div class="rounded-3xl p-8 lg:p-10 text-white" style="background: linear-gradient(135deg, #0B1F4B 0%, #1040A0 100%);">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F59E0B]/15 border border-[#F59E0B]/30 text-[#F59E0B] text-xs font-semibold uppercase tracking-wider mb-5">
+            Oficina principal
+          </span>
+          <h2 class="font-bold text-2xl lg:text-3xl mb-4">
+            Atención en Bogotá, cobertura en todo Colombia
+          </h2>
+          <p class="text-slate-300 leading-relaxed mb-8">
+            Atendemos de manera directa desde nuestra oficina principal y acompañamos procesos a nivel nacional para certificación de productos eléctricos, electrónicos e iluminación.
+          </p>
+
+          <div class="space-y-4 text-sm">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[#F59E0B] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <span class="text-slate-200">Carrera 12 #17-94 Oficina 301, Bogotá, D.C.</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[#F59E0B] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-slate-200">Lunes a viernes, 7:00 a. m. a 5:30 p. m.</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[#F59E0B] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              <span class="text-slate-200">+57 310 836 9861</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[#F59E0B] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <span class="text-slate-200">sac@llccolombia.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-[#E2E8F0] bg-white p-8 lg:p-10 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[#F59E0B] bg-[#FEF3C7] mb-5">
+              Ubicación
+            </span>
+            <h2 class="text-[#0F172A] font-bold text-2xl lg:text-3xl mb-4">
+              Visítanos o agenda tu primer contacto
+            </h2>
+            <p class="text-[#64748B] leading-relaxed mb-8">
+              Si prefieres ubicar la oficina o compartir la dirección con tu equipo, puedes abrir la ubicación directamente en tu aplicación de mapas.
+            </p>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden border border-[#E2E8F0] bg-[#F8FAFC]">
+            <iframe
+              title="Ubicación LLC Certificaciones"
+              src="https://maps.google.com/maps?q=Carrera%2012%20%2317-94%20Oficina%20301%20Bogot%C3%A1&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              class="w-full h-[320px] border-0"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <div class="p-6 text-center border-t border-[#E2E8F0] bg-white">
+              <p class="text-[#0F172A] font-semibold mb-2">Carrera 12 #17-94 Oficina 301</p>
+              <p class="text-[#64748B] text-sm leading-relaxed max-w-md mx-auto mb-6">
+                Bogotá, D.C. Puedes usar este punto como referencia de oficina principal para atención comercial y coordinación de procesos.
+              </p>
+              <a
+                href="https://maps.google.com/?q=Carrera+12+%2317-94+Oficina+301+Bogota"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-6 py-3.5 bg-[#1040A0] hover:bg-[#1A56C8] text-white font-bold rounded-xl transition-all duration-200 shadow-md hover:shadow-lg"
+              >
+                Abrir en Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  var contactForm = document.getElementById('contact-whatsapp-form');
+
+  contactForm?.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var form = event.currentTarget;
+    if (!(form instanceof HTMLFormElement)) return;
+
+    var formData = new FormData(form);
+    var name = String(formData.get('name') || '').trim();
+    var phone = String(formData.get('phone') || '').trim();
+    var email = String(formData.get('email') || '').trim();
+    var description = String(formData.get('description') || '').trim();
+
+    var message = [
+      'Hola, quiero informacion sobre certificacion con LLC.',
+      '',
+      'Nombre: ' + name,
+      'Telefono de contacto: ' + phone,
+      'Email: ' + email,
+      'Descripcion: ' + description,
+    ].join('\n');
+
+    var whatsappUrl = 'https://wa.me/573108369861?text=' + encodeURIComponent(message);
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  });
+</script>
