@@ -67,7 +67,7 @@ const steps = [
       aria-hidden="true"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-      <nav class="flex items-center gap-2 text-sm mb-8">
+      <nav id="cert-breadcrumb" class="flex items-center gap-2 text-sm mb-8">
         <a href="/" class="text-slate-400 hover:text-white transition-colors">Inicio</a>
         <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
@@ -75,7 +75,7 @@ const steps = [
         <span class="text-white font-medium">Certificados</span>
       </nav>
 
-      <div class="max-w-3xl">
+      <div id="cert-hero-content" class="max-w-3xl">
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
           <svg class="w-4 h-4 text-[#F59E0B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/>
@@ -105,7 +105,7 @@ const steps = [
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
         <!-- Texto -->
-        <div>
+        <div id="cert-onac-text">
           <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[var(--color-primary-blue)] bg-[var(--color-light-blue-bg)] mb-5">
             Acreditación
           </span>
@@ -148,7 +148,7 @@ const steps = [
         </div>
 
         <!-- Card visual del certificado -->
-        <div class="flex justify-center">
+        <div id="cert-onac-card" class="flex justify-center">
           <div class="relative w-full max-w-sm">
             <!-- Sombra decorativa detrás -->
             <div class="absolute -bottom-3 -right-3 w-full h-full rounded-2xl bg-[var(--color-primary-blue)]/10 border border-[var(--color-primary-blue)]/15"></div>
@@ -208,7 +208,7 @@ const steps = [
   <section class="py-20 lg:py-28 bg-[var(--color-surface-alt)]">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
-      <div class="text-center mb-14">
+      <div id="cert-steps-header" class="text-center mb-14">
         <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[var(--color-accent-amber)] bg-[var(--color-badge-amber-bg)] mb-4">
           Verificación
         </span>
@@ -222,7 +222,7 @@ const steps = [
 
       <!-- Pasos -->
       <div class="max-w-4xl mx-auto">
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        <div id="cert-steps-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
           {steps.map(step => (
             <div class="group bg-[var(--color-surface)] rounded-2xl p-6 border border-[var(--color-border)] hover:border-[var(--color-border-hover)] hover:shadow-md transition-all duration-200">
               <div class="flex items-center gap-3 mb-4">
@@ -250,7 +250,7 @@ const steps = [
         </div>
 
         <!-- CTA al portal -->
-        <div class="rounded-2xl p-8 text-center border border-[var(--color-primary-blue)]/15"
+        <div id="cert-sicerco-cta" class="rounded-2xl p-8 text-center border border-[var(--color-primary-blue)]/15"
           style="background: linear-gradient(135deg, var(--color-cta-gradient-start) 0%, var(--color-cta-gradient-end) 100%);">
           <p class="text-[var(--color-text-body)] mb-5 text-sm">
             ¿Tienes el número de tu certificado listo? Accede directamente al portal de verificación oficial.
@@ -275,7 +275,7 @@ const steps = [
   <section class="py-16 lg:py-20"
     style="background: linear-gradient(135deg, #0B1F4B 0%, #1040A0 100%);">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center">
+      <div id="cert-cta-content" class="max-w-3xl mx-auto text-center">
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F59E0B]/15 border border-[#F59E0B]/30 mb-6">
           <svg class="w-4 h-4 text-[#F59E0B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/>
@@ -303,3 +303,45 @@ const steps = [
 
   <Footer />
 </Layout>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const ease = 'power2.out';
+  const dur = 0.6;
+
+  function animateOnScroll(targets: string, opts: { y?: number; stagger?: number; x?: number } = {}) {
+    const els = document.querySelectorAll(targets);
+    if (!els.length) return;
+    gsap.set(els, { opacity: 0, y: opts.y ?? 30, x: opts.x ?? 0 });
+    ScrollTrigger.create({
+      trigger: els[0] as Element,
+      start: 'top 90%',
+      once: true,
+      onEnter: () => {
+        gsap.to(els, { opacity: 1, y: 0, x: 0, duration: dur, ease, stagger: opts.stagger ?? 0 });
+      },
+    });
+  }
+
+  // ── Hero: al cargar ─────────────────────────────────────────────────────
+  const heroEls = document.querySelectorAll('#cert-breadcrumb, #cert-hero-content > *');
+  gsap.set(heroEls, { opacity: 0, y: 20 });
+  gsap.to(heroEls, { opacity: 1, y: 0, duration: dur, ease, stagger: 0.12, delay: 0.15 });
+
+  // ── Sección ONAC: texto desde izquierda, card desde derecha ─────────────
+  animateOnScroll('#cert-onac-text', { x: -30, y: 0 });
+  animateOnScroll('#cert-onac-card', { x: 30, y: 0 });
+
+  // ── Pasos de verificación ───────────────────────────────────────────────
+  animateOnScroll('#cert-steps-header > *', { y: 22, stagger: 0.12 });
+  animateOnScroll('#cert-steps-grid > div', { y: 28, stagger: 0.10 });
+  animateOnScroll('#cert-sicerco-cta', { y: 25 });
+
+  // ── CTA final ───────────────────────────────────────────────────────────
+  animateOnScroll('#cert-cta-content > *', { y: 25, stagger: 0.12 });
+
+  window.addEventListener('load', () => ScrollTrigger.refresh());
+</script>

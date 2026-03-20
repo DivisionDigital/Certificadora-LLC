@@ -27,7 +27,7 @@ import Footer from '../components/Footer.astro';
 
     <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
       <!-- Breadcrumb -->
-      <nav class="flex items-center gap-2 text-sm mb-8">
+      <nav id="nos-breadcrumb" class="flex items-center gap-2 text-sm mb-8">
         <a href="/" class="text-slate-400 hover:text-white transition-colors">Inicio</a>
         <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
@@ -35,7 +35,7 @@ import Footer from '../components/Footer.astro';
         <span class="text-white font-medium">Nosotros</span>
       </nav>
 
-      <div class="max-w-3xl">
+      <div id="nos-hero-content" class="max-w-3xl">
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
           <svg class="w-4 h-4 text-[#F59E0B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
@@ -62,7 +62,7 @@ import Footer from '../components/Footer.astro';
   <!-- ═══ Misión y Visión ═══ -->
   <section class="py-20 lg:py-28 bg-[var(--color-surface)]">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 gap-8">
+      <div id="nos-mv-grid" class="grid md:grid-cols-2 gap-8">
 
         <!-- Misión -->
         <div class="group p-8 lg:p-10 rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-border-hover)] bg-[var(--color-surface)] hover:shadow-lg transition-all duration-300">
@@ -110,7 +110,7 @@ import Footer from '../components/Footer.astro';
   <section class="py-20 lg:py-28 bg-[var(--color-surface-alt)]">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
-      <div class="text-center mb-14">
+      <div id="nos-politica-header" class="text-center mb-14">
         <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[var(--color-primary-blue)] bg-[var(--color-light-blue-bg)] mb-4">
           Nuestros pilares
         </span>
@@ -120,7 +120,7 @@ import Footer from '../components/Footer.astro';
       </div>
 
       <div class="max-w-4xl mx-auto">
-        <div class="p-8 lg:p-10 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm mb-6">
+        <div id="nos-politica-card" class="p-8 lg:p-10 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm mb-6">
           <p class="text-[var(--color-text-body)] leading-relaxed mb-8">
             La Junta Directiva de LLC ha definido, revisado y aprobado la siguiente política integral:
           </p>
@@ -165,7 +165,7 @@ import Footer from '../components/Footer.astro';
   <section class="py-20 lg:py-28 bg-[var(--color-surface)]">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
-      <div class="text-center mb-14">
+      <div id="nos-obj-header" class="text-center mb-14">
         <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[var(--color-accent-amber)] bg-[var(--color-badge-amber-bg)] mb-4">
           Compromisos
         </span>
@@ -177,7 +177,7 @@ import Footer from '../components/Footer.astro';
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div id="nos-obj-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
 
         <!-- Objetivo 1 -->
         <div class="group p-7 rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-border-hover)] hover:shadow-md transition-all duration-300 bg-[var(--color-surface)]">
@@ -256,7 +256,7 @@ import Footer from '../components/Footer.astro';
   <!-- ═══ Dato importante ═══ -->
   <section class="py-16 lg:py-20" style="background: linear-gradient(135deg, #0B1F4B 0%, #1040A0 100%);">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto text-center">
+      <div id="nos-cta-content" class="max-w-4xl mx-auto text-center">
 
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F59E0B]/15 border border-[#F59E0B]/30 mb-6">
           <svg class="w-4 h-4 text-[#F59E0B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -297,3 +297,54 @@ import Footer from '../components/Footer.astro';
 
   <Footer />
 </Layout>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const ease = 'power2.out';
+  const dur = 0.6;
+
+  // Helper: anima un grupo de elementos al entrar al viewport
+  function animateOnScroll(targets: string, options: gsap.TweenVars = {}) {
+    const els = document.querySelectorAll(targets);
+    if (!els.length) return;
+    gsap.set(els, { opacity: 0, y: options.y ?? 30 });
+    ScrollTrigger.create({
+      trigger: els[0] as Element,
+      start: 'top 90%',
+      once: true,
+      onEnter: () => {
+        gsap.to(els, {
+          opacity: 1, y: 0,
+          duration: dur,
+          ease,
+          stagger: (options.stagger as number) ?? 0,
+        });
+      },
+    });
+  }
+
+  // ── Hero: animación al cargar (sin scroll) ──────────────────────────────
+  const heroEls = document.querySelectorAll('#nos-breadcrumb, #nos-hero-content > *');
+  gsap.set(heroEls, { opacity: 0, y: 20 });
+  gsap.to(heroEls, { opacity: 1, y: 0, duration: dur, ease, stagger: 0.12, delay: 0.15 });
+
+  // ── Misión / Visión ─────────────────────────────────────────────────────
+  animateOnScroll('#nos-mv-grid > div', { stagger: 0.15 });
+
+  // ── Política Integral ───────────────────────────────────────────────────
+  animateOnScroll('#nos-politica-header > *', { y: 22, stagger: 0.12 });
+  animateOnScroll('#nos-politica-card', { y: 30 });
+
+  // ── Objetivos ───────────────────────────────────────────────────────────
+  animateOnScroll('#nos-obj-header > *', { y: 22, stagger: 0.12 });
+  animateOnScroll('#nos-obj-grid > div', { stagger: 0.10 });
+
+  // ── CTA final ───────────────────────────────────────────────────────────
+  animateOnScroll('#nos-cta-content > *', { y: 25, stagger: 0.12 });
+
+  // Recalcula posiciones tras layout completo
+  window.addEventListener('load', () => ScrollTrigger.refresh());
+</script>

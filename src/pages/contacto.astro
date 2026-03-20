@@ -87,7 +87,7 @@ function iconPath(icon: string) {
     <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-10" style="background:radial-gradient(circle,#1E6FE8 0%,transparent 70%); transform:translate(30%,-40%);" aria-hidden="true"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-      <nav class="flex items-center gap-2 text-sm mb-8">
+      <nav id="con-breadcrumb" class="flex items-center gap-2 text-sm mb-8">
         <a href="/" class="text-slate-400 hover:text-white transition-colors">Inicio</a>
         <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
@@ -95,7 +95,7 @@ function iconPath(icon: string) {
         <span class="text-white font-medium">Contacto</span>
       </nav>
 
-      <div class="max-w-3xl">
+      <div id="con-hero-content" class="max-w-3xl">
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
           <svg class="w-4 h-4 text-[#F59E0B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
@@ -121,7 +121,7 @@ function iconPath(icon: string) {
   <section class="py-20 lg:py-28 bg-[var(--color-surface)]">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-10 items-start">
-        <div>
+        <div id="con-channels-col">
           <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[var(--color-primary-blue)] bg-[var(--color-light-blue-bg)] mb-5">
             Canales de atención
           </span>
@@ -132,7 +132,7 @@ function iconPath(icon: string) {
             Tomamos como referencia la información publicada en la web actual de LLC para mantener consistencia en datos de contacto, horario y ubicación, integrándola al diseño corporativo de esta nueva versión.
           </p>
 
-          <div class="grid sm:grid-cols-2 gap-5">
+          <div id="con-cards-grid" class="grid sm:grid-cols-2 gap-5">
             {contactItems.map((item) => (
               <a
                 href={item.href}
@@ -169,7 +169,7 @@ function iconPath(icon: string) {
           </div>
         </div>
 
-        <div class="rounded-3xl border border-[var(--color-border)] overflow-hidden shadow-sm bg-[var(--color-surface-alt)]">
+        <div id="con-form-col" class="rounded-3xl border border-[var(--color-border)] overflow-hidden shadow-sm bg-[var(--color-surface-alt)]">
           <div class="px-8 pt-8 pb-6" style="background: linear-gradient(160deg, #0B1F4B 0%, #1040A0 100%);">
             <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/85 text-xs font-semibold uppercase tracking-wider mb-4">
               Formulario de contacto
@@ -270,7 +270,7 @@ function iconPath(icon: string) {
   <section class="py-20 lg:py-24 bg-[var(--color-surface-alt)]">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-8 items-stretch">
-        <div class="rounded-3xl p-8 lg:p-10 text-white" style="background: linear-gradient(135deg, #0B1F4B 0%, #1040A0 100%);">
+        <div id="con-office-card" class="rounded-3xl p-8 lg:p-10 text-white" style="background: linear-gradient(135deg, #0B1F4B 0%, #1040A0 100%);">
           <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F59E0B]/15 border border-[#F59E0B]/30 text-[#F59E0B] text-xs font-semibold uppercase tracking-wider mb-5">
             Oficina principal
           </span>
@@ -310,7 +310,7 @@ function iconPath(icon: string) {
           </div>
         </div>
 
-        <div class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 lg:p-10 shadow-sm flex flex-col justify-between">
+        <div id="con-map-card" class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 lg:p-10 shadow-sm flex flex-col justify-between">
           <div>
             <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[var(--color-accent-amber)] bg-[var(--color-badge-amber-bg)] mb-5">
               Ubicación
@@ -353,6 +353,45 @@ function iconPath(icon: string) {
 
   <Footer />
 </Layout>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const ease = 'power2.out';
+  const dur = 0.6;
+
+  function animateOnScroll(targets: string, opts: { y?: number; x?: number; stagger?: number } = {}) {
+    const els = document.querySelectorAll(targets);
+    if (!els.length) return;
+    gsap.set(els, { opacity: 0, y: opts.y ?? 30, x: opts.x ?? 0 });
+    ScrollTrigger.create({
+      trigger: els[0] as Element,
+      start: 'top 90%',
+      once: true,
+      onEnter: () => {
+        gsap.to(els, { opacity: 1, y: 0, x: 0, duration: dur, ease, stagger: opts.stagger ?? 0 });
+      },
+    });
+  }
+
+  // ── Hero: al cargar ─────────────────────────────────────────────────────
+  const heroEls = document.querySelectorAll('#con-breadcrumb, #con-hero-content > *');
+  gsap.set(heroEls, { opacity: 0, y: 20 });
+  gsap.to(heroEls, { opacity: 1, y: 0, duration: dur, ease, stagger: 0.12, delay: 0.15 });
+
+  // ── Sección canales: encabezado desde izquierda, formulario desde derecha
+  animateOnScroll('#con-channels-col > span, #con-channels-col > h2, #con-channels-col > p', { x: -25, y: 0, stagger: 0.1 });
+  animateOnScroll('#con-cards-grid > a', { y: 28, stagger: 0.12 });
+  animateOnScroll('#con-form-col', { x: 30, y: 0 });
+
+  // ── Sección ubicación ───────────────────────────────────────────────────
+  animateOnScroll('#con-office-card', { x: -30, y: 0 });
+  animateOnScroll('#con-map-card', { x: 30, y: 0 });
+
+  window.addEventListener('load', () => ScrollTrigger.refresh());
+</script>
 
 <script>
   var contactForm = document.getElementById('contact-whatsapp-form');
