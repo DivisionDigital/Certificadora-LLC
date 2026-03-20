@@ -4,22 +4,22 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const documents = [
-  { name: 'Gestión Comercial', url: 'https://llccolombia.com/wp-content/uploads/2025/09/GESTION-COMERCIAL.pdf', type: 'PDF', category: 'comercial' },
-  { name: 'Servicio Certificación Producto', url: 'https://llccolombia.com/wp-content/uploads/2025/09/SERVICIO-CERTIFICACION-PRODUCTO.pdf', type: 'PDF', category: 'comercial' },
-  { name: 'Solicitud Servicio de Evaluación de la Conformidad', url: 'https://llccolombia.com/wp-content/uploads/2025/10/SOLICITUD-SERVICIO-DE-EVALUACION-DE-LA-CONFORMIDAD.xlsx', type: 'XLSX', category: 'comercial' },
-  { name: 'Acuerdo de Certificación — Términos y Condiciones', url: 'https://llccolombia.com/wp-content/uploads/2025/10/ACUERDO-DE-CERTIFICACION.-TERMINOS-Y-CONDICIONES-SERVICIO-CERTIFICACION-PRODUCTO.pdf', type: 'PDF', category: 'comercial' },
-  { name: 'Uso del Sello y Certificado LLC', url: 'https://llccolombia.com/wp-content/uploads/2025/10/USO-DEL-SELLO-Y-CERTIFICADO-LLC.pdf', type: 'PDF', category: 'certificacion' },
-  { name: 'Quejas y Apelaciones', url: 'https://llccolombia.com/wp-content/uploads/2025/10/QUEJAS-Y-APELACIONES.pdf', type: 'PDF', category: 'certificacion' },
-  { name: 'Verificación y Control de Superintendencia de Industria y Comercio', url: 'https://llccolombia.com/wp-content/uploads/2025/10/VERIFICACION-Y-CONTROL-DE-SUPERINTENDENCIA-DE-INDUSTRIA-Y-COMERCIO.pdf', type: 'PDF', category: 'certificacion' },
-  { name: 'Formato Quejas y Apelaciones', url: 'https://llccolombia.com/wp-content/uploads/2024/01/7.-CPR-SG-FR-14-FORMATO-QUEJAS-Y-APELACIONES.pdf', type: 'PDF', category: 'certificacion' },
-  { name: 'Gestión de Imparcialidad', url: 'https://llccolombia.com/wp-content/uploads/2025/10/GESTION-DE-IMPARCIALIDAD.pdf', type: 'PDF', category: 'gestion' },
-  { name: 'Matriz de Riesgos a la Imparcialidad', url: 'https://llccolombia.com/wp-content/uploads/2025/10/MATRIZ-DE-RIESGOS-A-LA-IMPARCIALIDAD.xls', type: 'XLS', category: 'gestion' },
-  { name: 'Acuerdo de Confidencialidad entre LLC y el Cliente', url: 'https://llccolombia.com/wp-content/uploads/2025/10/ACUERDO-DE-CONFIDENCIALIDAD-ACUERDO-DE-CONFIDENCIALIDAD-ENTRE-LLC-Y-EL-CLIENTE.pdf', type: 'PDF', category: 'gestion' },
-  { name: 'Matriz de Riesgos', url: 'https://llccolombia.com/wp-content/uploads/2025/10/MATRIZ-DE-RIESGOS.xls', type: 'XLS', category: 'gestion' },
-  { name: 'Matriz de Partes Interesadas', url: 'https://llccolombia.com/wp-content/uploads/2025/10/MATRIZ-DE-PARTES-INTERESADAS.pdf', type: 'PDF', category: 'gestion' },
-  { name: 'Verificación Certificado ONAC', url: 'https://llccolombia.com/wp-content/uploads/2025/10/VERIFICACION-CERTIFICADO-ONAC.pdf', type: 'PDF', category: 'reglamentos' },
-  { name: 'Reglamento Técnico de Instalaciones Eléctricas — RETIE 2024', url: 'https://llccolombia.com/wp-content/uploads/2025/01/15.-CPR-GC-PR-06-REGLAMENTO-TECNICO-DE-INSTALACIONES-ELECTRICAS-RETIE-2024.pdf', type: 'PDF', category: 'reglamentos' },
-  { name: 'Reglamento Técnico de Iluminación y Alumbrado Público — RETILAP 2024', url: 'https://llccolombia.com/wp-content/uploads/2025/01/16.-CPR-GC-PR-07-REGLAMENTO-TECNICO-DE-ILUMINACION-Y-ALUMBRADO-PUBLICO-RETILAP-2024.pdf', type: 'PDF', category: 'reglamentos' },
+  { name: 'Gestión Comercial', url: '/pdf/documents/GESTION-COMERCIAL.pdf', type: 'PDF', category: 'comercial' },
+  { name: 'Servicio Certificación Producto', url: '/pdf/documents/SERVICIO-CERTIFICACION-PRODUCTO.pdf', type: 'PDF', category: 'comercial' },
+  { name: 'Solicitud Servicio de Evaluación de la Conformidad', url: '/pdf/documents/SOLICITUD-SERVICIO-DE-EVALUACION-DE-LA-CONFORMIDAD.xlsx', type: 'XLSX', category: 'comercial' },
+  { name: 'Acuerdo de Certificación — Términos y Condiciones', url: '/pdf/documents/ACUERDO-DE-CERTIFICACION.-TERMINOS-Y-CONDICIONES-SERVICIO-CERTIFICACION-PRODUCTO.pdf', type: 'PDF', category: 'comercial' },
+  { name: 'Uso del Sello y Certificado LLC', url: '/pdf/documents/USO-DEL-SELLO-Y-CERTIFICADO-LLC.pdf', type: 'PDF', category: 'certificacion' },
+  { name: 'Quejas y Apelaciones', url: '/pdf/documents/QUEJAS-Y-APELACIONES.pdf', type: 'PDF', category: 'certificacion' },
+  { name: 'Verificación y Control de Superintendencia de Industria y Comercio', url: '/pdf/documents/VERIFICACION-Y-CONTROL-DE-SUPERINTENDENCIA-DE-INDUSTRIA-Y-COMERCIO.pdf', type: 'PDF', category: 'certificacion' },
+  { name: 'Formato Quejas y Apelaciones', url: '/pdf/documents/7.-CPR-SG-FR-14-FORMATO-QUEJAS-Y-APELACIONES.pdf', type: 'PDF', category: 'certificacion' },
+  { name: 'Gestión de Imparcialidad', url: '/pdf/documents/GESTION-DE-IMPARCIALIDAD.pdf', type: 'PDF', category: 'gestion' },
+  { name: 'Matriz de Riesgos a la Imparcialidad', url: '/pdf/documents/MATRIZ-DE-RIESGOS.xls', type: 'XLS', category: 'gestion' },
+  { name: 'Acuerdo de Confidencialidad entre LLC y el Cliente', url: '/pdf/documents/ACUERDO-DE-CONFIDENCIALIDAD-ACUERDO-DE-CONFIDENCIALIDAD-ENTRE-LLC-Y-EL-CLIENTE.pdf', type: 'PDF', category: 'gestion' },
+  { name: 'Matriz de Riesgos', url: '/pdf/documents/MATRIZ-DE-RIESGOS.xls', type: 'XLS', category: 'gestion' },
+  { name: 'Matriz de Partes Interesadas', url: '/pdf/documents/MATRIZ-DE-PARTES-INTERESADAS.pdf', type: 'PDF', category: 'gestion' },
+  { name: 'Verificación Certificado ONAC', url: '/pdf/documents/VERIFICACION-CERTIFICADO-ONAC.pdf', type: 'PDF', category: 'reglamentos' },
+  { name: 'Reglamento Técnico de Instalaciones Eléctricas — RETIE 2024', url: '/pdf/documents/15.-CPR-GC-PR-06-REGLAMENTO-TECNICO-DE-INSTALACIONES-ELECTRICAS-RETIE-2024.pdf', type: 'PDF', category: 'reglamentos' },
+  { name: 'Reglamento Técnico de Iluminación y Alumbrado Público — RETILAP 2024', url: '/pdf/documents/16.-CPR-GC-PR-07-REGLAMENTO-TECNICO-DE-ILUMINACION-Y-ALUMBRADO-PUBLICO-RETILAP-2024.pdf', type: 'PDF', category: 'reglamentos' },
 ];
 
 function typeColor(type: string) {
