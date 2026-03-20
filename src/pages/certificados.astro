@@ -94,28 +94,28 @@ const steps = [
 
     <div class="absolute bottom-0 left-0 right-0" aria-hidden="true">
       <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0 60L1440 60L1440 30C1200 60 960 0 720 20C480 40 240 10 0 30L0 60Z" fill="white"/>
+        <path d="M0 60L1440 60L1440 30C1200 60 960 0 720 20C480 40 240 10 0 30L0 60Z" class="wave-fill"/>
       </svg>
     </div>
   </section>
 
   <!-- ═══ Sección 1: Nuestro certificado ONAC ═══ -->
-  <section class="py-20 lg:py-28 bg-white">
+  <section class="py-20 lg:py-28 bg-[var(--color-surface)]">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
         <!-- Texto -->
         <div>
-          <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[#1040A0] bg-[#DBEAFE] mb-5">
+          <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[var(--color-primary-blue)] bg-[var(--color-light-blue-bg)] mb-5">
             Acreditación
           </span>
-          <h2 class="text-[#0F172A] font-bold leading-tight mb-5"
+          <h2 class="text-[var(--color-text-primary)] font-bold leading-tight mb-5"
             style="font-size: clamp(1.75rem, 3vw, 2.25rem);">
             Nuestro certificado de acreditación ONAC
           </h2>
-          <p class="text-[#334155] leading-relaxed mb-6">
+          <p class="text-[var(--color-text-body)] leading-relaxed mb-6">
             LLC Certificaciones cuenta con la acreditación del
-            <strong class="text-[#0F172A]">Organismo Nacional de Acreditación de Colombia (ONAC)</strong>
+            <strong class="text-[var(--color-text-primary)]">Organismo Nacional de Acreditación de Colombia (ONAC)</strong>
             bajo la norma ISO/IEC 17065, lo que nos habilita para emitir certificados de conformidad
             de producto con plena validez legal en el territorio nacional.
           </p>
@@ -126,8 +126,8 @@ const steps = [
               'Supervisado por la Superintendencia de Industria y Comercio',
               'Certificados con validez jurídica nacional',
             ].map(item => (
-              <li class="flex items-start gap-3 text-[#334155] text-sm">
-                <svg class="w-5 h-5 text-[#1040A0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <li class="flex items-start gap-3 text-[var(--color-text-body)] text-sm">
+                <svg class="w-5 h-5 text-[var(--color-primary-blue)] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
                 {item}
@@ -138,7 +138,7 @@ const steps = [
             href="https://llccolombia.com/wp-content/uploads/2024/01/23-CPR-004-Actualizado.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-7 py-4 bg-[#1040A0] hover:bg-[#1A56C8] text-white font-bold rounded-xl transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            class="inline-flex items-center gap-2 px-7 py-4 bg-[var(--color-primary-blue)] hover:bg-[var(--color-primary-hover)] text-white font-bold rounded-xl transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
@@ -151,10 +151,10 @@ const steps = [
         <div class="flex justify-center">
           <div class="relative w-full max-w-sm">
             <!-- Sombra decorativa detrás -->
-            <div class="absolute -bottom-3 -right-3 w-full h-full rounded-2xl bg-[#1040A0]/10 border border-[#1040A0]/15"></div>
-            <div class="relative rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-xl bg-white">
+            <div class="absolute -bottom-3 -right-3 w-full h-full rounded-2xl bg-[var(--color-primary-blue)]/10 border border-[var(--color-primary-blue)]/15"></div>
+            <div class="relative rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-xl bg-[var(--color-surface)]">
               <!-- Header del certificado -->
-              <div class="px-8 pt-8 pb-6 text-center border-b border-[#E2E8F0]"
+              <div class="px-8 pt-8 pb-6 text-center border-b border-[var(--color-border)]"
                 style="background: linear-gradient(160deg, #0B1F4B 0%, #1040A0 100%);">
                 <div class="w-16 h-16 rounded-2xl bg-[#F59E0B] flex items-center justify-center mx-auto mb-4">
                   <svg class="w-9 h-9 text-[#0B1F4B]" fill="currentColor" viewBox="0 0 24 24">
@@ -166,21 +166,21 @@ const steps = [
               </div>
               <!-- Cuerpo -->
               <div class="px-8 py-6 space-y-4">
-                <div class="flex justify-between items-center py-3 border-b border-[#F1F5F9]">
-                  <span class="text-[#64748B] text-xs font-medium">Norma</span>
-                  <span class="text-[#0F172A] text-sm font-semibold">ISO/IEC 17065</span>
+                <div class="flex justify-between items-center py-3 border-b border-[var(--color-placeholder-bg)]">
+                  <span class="text-[var(--color-text-muted)] text-xs font-medium">Norma</span>
+                  <span class="text-[var(--color-text-primary)] text-sm font-semibold">ISO/IEC 17065</span>
                 </div>
-                <div class="flex justify-between items-center py-3 border-b border-[#F1F5F9]">
-                  <span class="text-[#64748B] text-xs font-medium">Organismo</span>
-                  <span class="text-[#0F172A] text-sm font-semibold">ONAC</span>
+                <div class="flex justify-between items-center py-3 border-b border-[var(--color-placeholder-bg)]">
+                  <span class="text-[var(--color-text-muted)] text-xs font-medium">Organismo</span>
+                  <span class="text-[var(--color-text-primary)] text-sm font-semibold">ONAC</span>
                 </div>
-                <div class="flex justify-between items-center py-3 border-b border-[#F1F5F9]">
-                  <span class="text-[#64748B] text-xs font-medium">Código</span>
-                  <span class="text-[#1040A0] text-sm font-bold">23-CPR-004</span>
+                <div class="flex justify-between items-center py-3 border-b border-[var(--color-placeholder-bg)]">
+                  <span class="text-[var(--color-text-muted)] text-xs font-medium">Código</span>
+                  <span class="text-[var(--color-primary-blue)] text-sm font-bold">23-CPR-004</span>
                 </div>
                 <div class="flex justify-between items-center py-3">
-                  <span class="text-[#64748B] text-xs font-medium">Estado</span>
-                  <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700">Vigente</span>
+                  <span class="text-[var(--color-text-muted)] text-xs font-medium">Estado</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-bold bg-[var(--color-badge-emerald-bg)] text-[var(--color-badge-emerald-text)]">Vigente</span>
                 </div>
               </div>
               <div class="px-8 pb-6">
@@ -188,7 +188,7 @@ const steps = [
                   href="https://llccolombia.com/wp-content/uploads/2024/01/23-CPR-004-Actualizado.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold text-[#1040A0] bg-[#DBEAFE] hover:bg-[#1040A0] hover:text-white transition-all duration-200"
+                  class="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold text-[var(--color-primary-blue)] bg-[var(--color-light-blue-bg)] hover:bg-[var(--color-primary-blue)] hover:text-white transition-all duration-200"
                 >
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
@@ -205,17 +205,17 @@ const steps = [
   </section>
 
   <!-- ═══ Sección 2: Consulta tu certificado ═══ -->
-  <section class="py-20 lg:py-28 bg-[#F8FAFC]">
+  <section class="py-20 lg:py-28 bg-[var(--color-surface-alt)]">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
       <div class="text-center mb-14">
-        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[#F59E0B] bg-[#FEF3C7] mb-4">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[var(--color-accent-amber)] bg-[var(--color-badge-amber-bg)] mb-4">
           Verificación
         </span>
-        <h2 class="text-[#0F172A] font-bold leading-tight" style="font-size: clamp(1.75rem, 3.5vw, 2.25rem);">
+        <h2 class="text-[var(--color-text-primary)] font-bold leading-tight" style="font-size: clamp(1.75rem, 3.5vw, 2.25rem);">
           Consulta tu certificado
         </h2>
-        <p class="text-[#64748B] mt-3 max-w-2xl mx-auto">
+        <p class="text-[var(--color-text-muted)] mt-3 max-w-2xl mx-auto">
           Verifica la vigencia y autenticidad de tu certificado de conformidad de producto a través del portal oficial SICERCO de la SIC.
         </p>
       </div>
@@ -224,20 +224,20 @@ const steps = [
       <div class="max-w-4xl mx-auto">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
           {steps.map(step => (
-            <div class="group bg-white rounded-2xl p-6 border border-[#E2E8F0] hover:border-[#1040A0]/25 hover:shadow-md transition-all duration-200">
+            <div class="group bg-[var(--color-surface)] rounded-2xl p-6 border border-[var(--color-border)] hover:border-[var(--color-border-hover)] hover:shadow-md transition-all duration-200">
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-8 h-8 rounded-lg bg-[#1040A0] flex items-center justify-center flex-shrink-0">
+                <div class="w-8 h-8 rounded-lg bg-[var(--color-primary-blue)] flex items-center justify-center flex-shrink-0">
                   <span class="text-white font-black text-sm">{step.num}</span>
                 </div>
-                <h3 class="text-[#0F172A] font-semibold text-sm">{step.title}</h3>
+                <h3 class="text-[var(--color-text-primary)] font-semibold text-sm">{step.title}</h3>
               </div>
-              <p class="text-[#64748B] text-sm leading-relaxed mb-3">{step.desc}</p>
+              <p class="text-[var(--color-text-muted)] text-sm leading-relaxed mb-3">{step.desc}</p>
               {step.link && (
                 <a
                   href={step.link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1.5 text-[#1040A0] hover:text-[#1A56C8] text-xs font-semibold transition-colors"
+                  class="inline-flex items-center gap-1.5 text-[var(--color-primary-blue)] hover:text-[var(--color-primary-hover)] text-xs font-semibold transition-colors"
                 >
                   {step.link.label}
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -250,16 +250,16 @@ const steps = [
         </div>
 
         <!-- CTA al portal -->
-        <div class="rounded-2xl p-8 text-center border border-[#1040A0]/15"
-          style="background: linear-gradient(135deg, rgba(16,64,160,0.05) 0%, rgba(30,111,232,0.05) 100%);">
-          <p class="text-[#334155] mb-5 text-sm">
+        <div class="rounded-2xl p-8 text-center border border-[var(--color-primary-blue)]/15"
+          style="background: linear-gradient(135deg, var(--color-cta-gradient-start) 0%, var(--color-cta-gradient-end) 100%);">
+          <p class="text-[var(--color-text-body)] mb-5 text-sm">
             ¿Tienes el número de tu certificado listo? Accede directamente al portal de verificación oficial.
           </p>
           <a
             href="https://sicerco.sic.gov.co/sicerco/index.xhtml?faces-redirect=true"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-7 py-4 bg-[#1040A0] hover:bg-[#1A56C8] text-white font-bold rounded-xl transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            class="inline-flex items-center gap-2 px-7 py-4 bg-[var(--color-primary-blue)] hover:bg-[var(--color-primary-hover)] text-white font-bold rounded-xl transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>

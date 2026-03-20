@@ -2,6 +2,79 @@
 
 @import "tailwindcss";
 
+/* ── Modo oscuro basado en clase ── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Variables de tema (light) ── */
+:root {
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F8FAFC;
+  --color-surface-card: #FFFFFF;
+  --color-surface-input: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-border-dark: #CBD5E1;
+  --color-border-hover: rgba(16, 64, 160, 0.30);
+  --color-text-primary: #0F172A;
+  --color-text-body: #334155;
+  --color-text-muted: #64748B;
+  --color-text-faint: #94A3B8;
+  --color-primary-navy: #0B1F4B;
+  --color-primary-blue: #1040A0;
+  --color-primary-hover: #1A56C8;
+  --color-accent-amber: #F59E0B;
+  --color-accent-amber-hover: #FBBF24;
+  --color-badge-blue-bg: #DBEAFE;
+  --color-badge-blue-text: #1040A0;
+  --color-badge-amber-bg: #FEF3C7;
+  --color-badge-amber-text: #92400E;
+  --color-light-blue-bg: #DBEAFE;
+  --color-placeholder-bg: #F1F5F9;
+  --color-placeholder-border: #C7D7F0;
+  --color-placeholder-text: #7AA0C8;
+  --color-placeholder-sub: #A8C0D8;
+  --color-placeholder-icon: #93B4E0;
+  --color-wave-fill: #FFFFFF;
+  --color-badge-emerald-bg: rgba(236, 253, 245, 1);
+  --color-badge-emerald-text: #047857;
+  --color-cta-gradient-start: rgba(16, 64, 160, 0.05);
+  --color-cta-gradient-end: rgba(30, 111, 232, 0.05);
+}
+
+/* ── Variables de tema (dark) ── */
+.dark {
+  --color-surface: #0F172A;
+  --color-surface-alt: #1E293B;
+  --color-surface-card: #1E293B;
+  --color-surface-input: #1E293B;
+  --color-border: #334155;
+  --color-border-dark: #475569;
+  --color-border-hover: rgba(96, 165, 250, 0.30);
+  --color-text-primary: #F1F5F9;
+  --color-text-body: #CBD5E1;
+  --color-text-muted: #94A3B8;
+  --color-text-faint: #64748B;
+  --color-primary-navy: #0B1F4B;
+  --color-primary-blue: #60A5FA;
+  --color-primary-hover: #93C5FD;
+  --color-accent-amber: #F59E0B;
+  --color-accent-amber-hover: #FBBF24;
+  --color-badge-blue-bg: rgba(30, 58, 138, 0.40);
+  --color-badge-blue-text: #93C5FD;
+  --color-badge-amber-bg: rgba(120, 53, 15, 0.40);
+  --color-badge-amber-text: #FCD34D;
+  --color-light-blue-bg: rgba(30, 58, 138, 0.30);
+  --color-placeholder-bg: #1E293B;
+  --color-placeholder-border: #334155;
+  --color-placeholder-text: #64748B;
+  --color-placeholder-sub: #475569;
+  --color-placeholder-icon: #475569;
+  --color-wave-fill: #0F172A;
+  --color-badge-emerald-bg: rgba(6, 78, 59, 0.30);
+  --color-badge-emerald-text: #34D399;
+  --color-cta-gradient-start: rgba(96, 165, 250, 0.08);
+  --color-cta-gradient-end: rgba(30, 111, 232, 0.08);
+}
+
 @layer base {
   html {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -11,19 +84,19 @@
   }
 
   body {
-    color: #0F172A;
-    background-color: #FFFFFF;
+    color: var(--color-text-primary);
+    background-color: var(--color-surface);
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
-    color: #0F172A;
+    color: var(--color-text-primary);
   }
 
   p {
     line-height: 1.7;
-    color: #334155;
+    color: var(--color-text-body);
   }
 
   a {
@@ -33,4 +106,9 @@
   * {
     box-sizing: border-box;
   }
+}
+
+/* Wave SVG fill que responde al tema */
+.wave-fill {
+  fill: var(--color-wave-fill);
 }

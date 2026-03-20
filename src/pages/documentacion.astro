@@ -88,19 +88,19 @@ const categories = [
 
     <div class="absolute bottom-0 left-0 right-0" aria-hidden="true">
       <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0 60L1440 60L1440 30C1200 60 960 0 720 20C480 40 240 10 0 30L0 60Z" fill="white"/>
+        <path d="M0 60L1440 60L1440 30C1200 60 960 0 720 20C480 40 240 10 0 30L0 60Z" class="wave-fill"/>
       </svg>
     </div>
   </section>
 
   <!-- ═══ Filtros + Documentos ═══ -->
-  <section class="py-20 lg:py-28 bg-white">
+  <section class="py-20 lg:py-28 bg-[var(--color-surface)]">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
       <!-- Contador + filtros -->
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
-        <p class="text-[#64748B] text-sm">
-          <span class="text-[#0F172A] font-semibold">{documents.length}</span> documentos disponibles
+        <p class="text-[var(--color-text-muted)] text-sm">
+          <span class="text-[var(--color-text-primary)] font-semibold">{documents.length}</span> documentos disponibles
         </p>
         <div class="flex flex-wrap gap-2" id="doc-filters">
           {categories.map(cat => (
@@ -108,8 +108,8 @@ const categories = [
               class="doc-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border"
               data-filter={cat.key}
               style={cat.key === 'all'
-                ? 'background:#1040A0; color:white; border-color:#1040A0;'
-                : 'background:transparent; color:#64748B; border-color:#E2E8F0;'}
+                ? 'background:var(--color-primary-blue); color:white; border-color:var(--color-primary-blue);'
+                : 'background:transparent; color:var(--color-text-muted); border-color:var(--color-border);'}
             >
               {cat.label}
             </button>
@@ -127,7 +127,7 @@ const categories = [
               href={doc.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="doc-card group flex flex-col p-5 rounded-2xl border border-[#E2E8F0] hover:border-[#1040A0]/30 hover:shadow-md bg-white transition-all duration-200"
+              class="doc-card group flex flex-col p-5 rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-border-hover)] hover:shadow-md bg-[var(--color-surface)] transition-all duration-200"
               data-category={doc.category}
             >
               <div class="flex items-start gap-3 mb-4">
@@ -141,11 +141,11 @@ const categories = [
                 </span>
               </div>
 
-              <h3 class="text-[#0F172A] font-semibold text-sm leading-snug mb-auto group-hover:text-[#1040A0] transition-colors">
+              <h3 class="text-[var(--color-text-primary)] font-semibold text-sm leading-snug mb-auto group-hover:text-[var(--color-primary-blue)] transition-colors">
                 {doc.name}
               </h3>
 
-              <div class="flex items-center gap-1.5 mt-4 pt-3 border-t border-[#E2E8F0] text-[#1040A0] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              <div class="flex items-center gap-1.5 mt-4 pt-3 border-t border-[var(--color-border)] text-[var(--color-primary-blue)] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
                 </svg>
@@ -203,34 +203,30 @@ const categories = [
 
 <script>
   // Filtrado de documentos por categoría
-  var filterBtns = document.querySelectorAll('.doc-filter-btn');
-  var cards = document.querySelectorAll('.doc-card');
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.doc-filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.doc-card');
 
-  filterBtns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var filter = btn.getAttribute('data-filter');
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
 
       // Actualizar estilos de botones
-      filterBtns.forEach(function(b) {
+      filterBtns.forEach((b) => {
         if (b === btn) {
-          b.style.background = '#1040A0';
+          b.style.background = 'var(--color-primary-blue)';
           b.style.color = 'white';
-          b.style.borderColor = '#1040A0';
+          b.style.borderColor = 'var(--color-primary-blue)';
         } else {
           b.style.background = 'transparent';
-          b.style.color = '#64748B';
-          b.style.borderColor = '#E2E8F0';
+          b.style.color = 'var(--color-text-muted)';
+          b.style.borderColor = 'var(--color-border)';
         }
       });
 
       // Mostrar/ocultar cards
-      cards.forEach(function(card) {
-        var cat = card.getAttribute('data-category');
-        if (filter === 'all' || cat === filter) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
+      cards.forEach((card) => {
+        const cat = card.getAttribute('data-category');
+        card.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
       });
     });
   });

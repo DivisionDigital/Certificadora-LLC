@@ -54,51 +54,51 @@ import Footer from '../components/Footer.astro';
     <!-- Wave -->
     <div class="absolute bottom-0 left-0 right-0" aria-hidden="true">
       <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0 60L1440 60L1440 30C1200 60 960 0 720 20C480 40 240 10 0 30L0 60Z" fill="white"/>
+        <path d="M0 60L1440 60L1440 30C1200 60 960 0 720 20C480 40 240 10 0 30L0 60Z" class="wave-fill"/>
       </svg>
     </div>
   </section>
 
   <!-- ═══ Misión y Visión ═══ -->
-  <section class="py-20 lg:py-28 bg-white">
+  <section class="py-20 lg:py-28 bg-[var(--color-surface)]">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-8">
 
         <!-- Misión -->
-        <div class="group p-8 lg:p-10 rounded-2xl border border-[#E2E8F0] hover:border-[#1040A0]/30 bg-white hover:shadow-lg transition-all duration-300">
-          <div class="w-14 h-14 rounded-xl bg-[#1040A0]/10 flex items-center justify-center mb-6 group-hover:bg-[#1040A0]/15 transition-colors">
-            <svg class="w-7 h-7 text-[#1040A0]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+        <div class="group p-8 lg:p-10 rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-border-hover)] bg-[var(--color-surface)] hover:shadow-lg transition-all duration-300">
+          <div class="w-14 h-14 rounded-xl bg-[var(--color-primary-blue)]/10 flex items-center justify-center mb-6 group-hover:bg-[var(--color-primary-blue)]/15 transition-colors">
+            <svg class="w-7 h-7 text-[var(--color-primary-blue)]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
             </svg>
           </div>
           <div class="flex items-center gap-3 mb-4">
-            <h2 class="text-[#0F172A] font-bold text-2xl">Misión</h2>
-            <div class="h-px flex-1 bg-[#E2E8F0]"></div>
+            <h2 class="text-[var(--color-text-primary)] font-bold text-2xl">Misión</h2>
+            <div class="h-px flex-1 bg-[var(--color-border)]"></div>
           </div>
-          <p class="text-[#334155] leading-relaxed">
+          <p class="text-[var(--color-text-body)] leading-relaxed">
             Prestar el servicio de evaluación de la conformidad de productos dando cumplimiento con los requisitos de la
-            <strong class="text-[#1040A0] font-semibold">ISO/IEC 17065</strong>, los requisitos legales y reglamentarios aplicables,
+            <strong class="text-[var(--color-primary-blue)] font-semibold">ISO/IEC 17065</strong>, los requisitos legales y reglamentarios aplicables,
             agregando valor a nuestros clientes ofreciéndoles procesos de evaluación de conformidad oportunos y confiables,
             orientados en la seguridad y el desempeño de sus productos.
           </p>
         </div>
 
         <!-- Visión -->
-        <div class="group p-8 lg:p-10 rounded-2xl border border-[#E2E8F0] hover:border-[#F59E0B]/30 bg-white hover:shadow-lg transition-all duration-300">
-          <div class="w-14 h-14 rounded-xl bg-[#F59E0B]/10 flex items-center justify-center mb-6 group-hover:bg-[#F59E0B]/15 transition-colors">
-            <svg class="w-7 h-7 text-[#F59E0B]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+        <div class="group p-8 lg:p-10 rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-border-hover)] bg-[var(--color-surface)] hover:shadow-lg transition-all duration-300">
+          <div class="w-14 h-14 rounded-xl bg-[var(--color-accent-amber)]/10 flex items-center justify-center mb-6 group-hover:bg-[var(--color-accent-amber)]/15 transition-colors">
+            <svg class="w-7 h-7 text-[var(--color-accent-amber)]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
           </div>
           <div class="flex items-center gap-3 mb-4">
-            <h2 class="text-[#0F172A] font-bold text-2xl">Visión</h2>
-            <div class="h-px flex-1 bg-[#E2E8F0]"></div>
+            <h2 class="text-[var(--color-text-primary)] font-bold text-2xl">Visión</h2>
+            <div class="h-px flex-1 bg-[var(--color-border)]"></div>
           </div>
-          <p class="text-[#334155] leading-relaxed">
+          <p class="text-[var(--color-text-body)] leading-relaxed">
             Fortalecer el liderazgo a nivel nacional por medio de la ampliación de nuestro alcance de certificación
             de productos bajo otros requisitos legales o normativos, a través del
-            <strong class="text-[#1040A0] font-semibold">crecimiento constante de un talento humano</strong>
+            <strong class="text-[var(--color-primary-blue)] font-semibold">crecimiento constante de un talento humano</strong>
             que contribuya al desarrollo empresarial.
           </p>
         </div>
@@ -107,52 +107,52 @@ import Footer from '../components/Footer.astro';
   </section>
 
   <!-- ═══ Política Integral ═══ -->
-  <section class="py-20 lg:py-28 bg-[#F8FAFC]">
+  <section class="py-20 lg:py-28 bg-[var(--color-surface-alt)]">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
       <div class="text-center mb-14">
-        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[#1040A0] bg-[#DBEAFE] mb-4">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[var(--color-primary-blue)] bg-[var(--color-light-blue-bg)] mb-4">
           Nuestros pilares
         </span>
-        <h2 class="text-[#0F172A] font-bold leading-tight" style="font-size: clamp(1.75rem, 3.5vw, 2.25rem);">
+        <h2 class="text-[var(--color-text-primary)] font-bold leading-tight" style="font-size: clamp(1.75rem, 3.5vw, 2.25rem);">
           Política Integral
         </h2>
       </div>
 
       <div class="max-w-4xl mx-auto">
-        <div class="p-8 lg:p-10 rounded-2xl bg-white border border-[#E2E8F0] shadow-sm mb-6">
-          <p class="text-[#334155] leading-relaxed mb-8">
+        <div class="p-8 lg:p-10 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm mb-6">
+          <p class="text-[var(--color-text-body)] leading-relaxed mb-8">
             La Junta Directiva de LLC ha definido, revisado y aprobado la siguiente política integral:
           </p>
 
           <div class="space-y-5">
             <div class="flex gap-4 items-start">
-              <div class="w-8 h-8 rounded-lg bg-[#1040A0] flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div class="w-8 h-8 rounded-lg bg-[var(--color-primary-blue)] flex items-center justify-center flex-shrink-0 mt-0.5">
                 <span class="text-white font-bold text-sm">1</span>
               </div>
-              <p class="text-[#334155] leading-relaxed">
+              <p class="text-[var(--color-text-body)] leading-relaxed">
                 Prestar el servicio de evaluación de la conformidad de productos dando cumplimiento con los requisitos de la
-                <strong class="font-semibold text-[#0F172A]">ISO/IEC 17065</strong>, los requisitos legales y reglamentarios aplicables
+                <strong class="font-semibold text-[var(--color-text-primary)]">ISO/IEC 17065</strong>, los requisitos legales y reglamentarios aplicables
                 y las directrices para los esquemas de certificación según el alcance de LLC bajo la
-                <strong class="font-semibold text-[#0F172A]">ISO/IEC 17067</strong>.
+                <strong class="font-semibold text-[var(--color-text-primary)]">ISO/IEC 17067</strong>.
               </p>
             </div>
 
             <div class="flex gap-4 items-start">
-              <div class="w-8 h-8 rounded-lg bg-[#1040A0] flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div class="w-8 h-8 rounded-lg bg-[var(--color-primary-blue)] flex items-center justify-center flex-shrink-0 mt-0.5">
                 <span class="text-white font-bold text-sm">2</span>
               </div>
-              <p class="text-[#334155] leading-relaxed">
-                Desarrollar e implementar un <strong class="font-semibold text-[#0F172A]">sistema de gestión integrado</strong> eficaz y eficiente.
+              <p class="text-[var(--color-text-body)] leading-relaxed">
+                Desarrollar e implementar un <strong class="font-semibold text-[var(--color-text-primary)]">sistema de gestión integrado</strong> eficaz y eficiente.
               </p>
             </div>
 
             <div class="flex gap-4 items-start">
-              <div class="w-8 h-8 rounded-lg bg-[#1040A0] flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div class="w-8 h-8 rounded-lg bg-[var(--color-primary-blue)] flex items-center justify-center flex-shrink-0 mt-0.5">
                 <span class="text-white font-bold text-sm">3</span>
               </div>
-              <p class="text-[#334155] leading-relaxed">
-                Implementar la <strong class="font-semibold text-[#0F172A]">mejora continua</strong> del sistema de gestión integrado.
+              <p class="text-[var(--color-text-body)] leading-relaxed">
+                Implementar la <strong class="font-semibold text-[var(--color-text-primary)]">mejora continua</strong> del sistema de gestión integrado.
               </p>
             </div>
           </div>
@@ -162,17 +162,17 @@ import Footer from '../components/Footer.astro';
   </section>
 
   <!-- ═══ Objetivos ═══ -->
-  <section class="py-20 lg:py-28 bg-white">
+  <section class="py-20 lg:py-28 bg-[var(--color-surface)]">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
       <div class="text-center mb-14">
-        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[#F59E0B] bg-[#FEF3C7] mb-4">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-[var(--color-accent-amber)] bg-[var(--color-badge-amber-bg)] mb-4">
           Compromisos
         </span>
-        <h2 class="text-[#0F172A] font-bold leading-tight" style="font-size: clamp(1.75rem, 3.5vw, 2.25rem);">
+        <h2 class="text-[var(--color-text-primary)] font-bold leading-tight" style="font-size: clamp(1.75rem, 3.5vw, 2.25rem);">
           Objetivos Específicos
         </h2>
-        <p class="text-[#64748B] mt-3 max-w-2xl mx-auto">
+        <p class="text-[var(--color-text-muted)] mt-3 max-w-2xl mx-auto">
           La Junta Directiva de LLC ha definido, revisado y aprobado los siguientes objetivos específicos.
         </p>
       </div>
@@ -180,71 +180,71 @@ import Footer from '../components/Footer.astro';
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
 
         <!-- Objetivo 1 -->
-        <div class="group p-7 rounded-2xl border border-[#E2E8F0] hover:border-[#1040A0]/25 hover:shadow-md transition-all duration-300 bg-white">
-          <div class="w-10 h-10 rounded-xl bg-[#DBEAFE] flex items-center justify-center mb-5 group-hover:bg-[#1040A0]/15 transition-colors">
-            <svg class="w-5 h-5 text-[#1040A0]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <div class="group p-7 rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-border-hover)] hover:shadow-md transition-all duration-300 bg-[var(--color-surface)]">
+          <div class="w-10 h-10 rounded-xl bg-[var(--color-light-blue-bg)] flex items-center justify-center mb-5 group-hover:bg-[var(--color-primary-blue)]/15 transition-colors">
+            <svg class="w-5 h-5 text-[var(--color-primary-blue)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"/>
             </svg>
           </div>
-          <h3 class="text-[#0F172A] font-semibold text-base mb-2">Satisfacción del cliente</h3>
-          <p class="text-[#64748B] text-sm leading-relaxed">
+          <h3 class="text-[var(--color-text-primary)] font-semibold text-base mb-2">Satisfacción del cliente</h3>
+          <p class="text-[var(--color-text-muted)] text-sm leading-relaxed">
             Obtener la satisfacción del cliente cumpliendo con los acuerdos comerciales, los requisitos de la ISO/IEC 17065
             y las directrices para los esquemas de certificación bajo la ISO/IEC 17067.
           </p>
         </div>
 
         <!-- Objetivo 2 -->
-        <div class="group p-7 rounded-2xl border border-[#E2E8F0] hover:border-[#1040A0]/25 hover:shadow-md transition-all duration-300 bg-white">
-          <div class="w-10 h-10 rounded-xl bg-[#DBEAFE] flex items-center justify-center mb-5 group-hover:bg-[#1040A0]/15 transition-colors">
-            <svg class="w-5 h-5 text-[#1040A0]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <div class="group p-7 rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-border-hover)] hover:shadow-md transition-all duration-300 bg-[var(--color-surface)]">
+          <div class="w-10 h-10 rounded-xl bg-[var(--color-light-blue-bg)] flex items-center justify-center mb-5 group-hover:bg-[var(--color-primary-blue)]/15 transition-colors">
+            <svg class="w-5 h-5 text-[var(--color-primary-blue)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
             </svg>
           </div>
-          <h3 class="text-[#0F172A] font-semibold text-base mb-2">Imparcialidad y confiabilidad</h3>
-          <p class="text-[#64748B] text-sm leading-relaxed">
+          <h3 class="text-[var(--color-text-primary)] font-semibold text-base mb-2">Imparcialidad y confiabilidad</h3>
+          <p class="text-[var(--color-text-muted)] text-sm leading-relaxed">
             Garantizar la imparcialidad, independencia, confiabilidad y confidencialidad durante la prestación del servicio
             de evaluación de la conformidad de productos según el alcance de LLC.
           </p>
         </div>
 
         <!-- Objetivo 3 -->
-        <div class="group p-7 rounded-2xl border border-[#E2E8F0] hover:border-[#1040A0]/25 hover:shadow-md transition-all duration-300 bg-white">
-          <div class="w-10 h-10 rounded-xl bg-[#DBEAFE] flex items-center justify-center mb-5 group-hover:bg-[#1040A0]/15 transition-colors">
-            <svg class="w-5 h-5 text-[#1040A0]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <div class="group p-7 rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-border-hover)] hover:shadow-md transition-all duration-300 bg-[var(--color-surface)]">
+          <div class="w-10 h-10 rounded-xl bg-[var(--color-light-blue-bg)] flex items-center justify-center mb-5 group-hover:bg-[var(--color-primary-blue)]/15 transition-colors">
+            <svg class="w-5 h-5 text-[var(--color-primary-blue)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/>
             </svg>
           </div>
-          <h3 class="text-[#0F172A] font-semibold text-base mb-2">Competencia del personal</h3>
-          <p class="text-[#64748B] text-sm leading-relaxed">
+          <h3 class="text-[var(--color-text-primary)] font-semibold text-base mb-2">Competencia del personal</h3>
+          <p class="text-[var(--color-text-muted)] text-sm leading-relaxed">
             Garantizar las competencias del personal a nivel organizacional para la prestación
             del servicio de evaluación de conformidad.
           </p>
         </div>
 
         <!-- Objetivo 4 -->
-        <div class="group p-7 rounded-2xl border border-[#E2E8F0] hover:border-[#1040A0]/25 hover:shadow-md transition-all duration-300 bg-white">
-          <div class="w-10 h-10 rounded-xl bg-[#FEF3C7] flex items-center justify-center mb-5 group-hover:bg-[#F59E0B]/15 transition-colors">
-            <svg class="w-5 h-5 text-[#F59E0B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <div class="group p-7 rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-border-hover)] hover:shadow-md transition-all duration-300 bg-[var(--color-surface)]">
+          <div class="w-10 h-10 rounded-xl bg-[var(--color-badge-amber-bg)] flex items-center justify-center mb-5 group-hover:bg-[var(--color-accent-amber)]/15 transition-colors">
+            <svg class="w-5 h-5 text-[var(--color-accent-amber)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z"/>
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z"/>
             </svg>
           </div>
-          <h3 class="text-[#0F172A] font-semibold text-base mb-2">Eficacia del sistema</h3>
-          <p class="text-[#64748B] text-sm leading-relaxed">
+          <h3 class="text-[var(--color-text-primary)] font-semibold text-base mb-2">Eficacia del sistema</h3>
+          <p class="text-[var(--color-text-muted)] text-sm leading-relaxed">
             Garantizar la eficacia y efectividad del Sistema de Gestión integrado
             en todos los procesos de la organización.
           </p>
         </div>
 
         <!-- Objetivo 5 -->
-        <div class="group p-7 rounded-2xl border border-[#E2E8F0] hover:border-[#1040A0]/25 hover:shadow-md transition-all duration-300 bg-white md:col-span-2 lg:col-span-2">
-          <div class="w-10 h-10 rounded-xl bg-[#FEF3C7] flex items-center justify-center mb-5 group-hover:bg-[#F59E0B]/15 transition-colors">
-            <svg class="w-5 h-5 text-[#F59E0B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <div class="group p-7 rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-border-hover)] hover:shadow-md transition-all duration-300 bg-[var(--color-surface)] md:col-span-2 lg:col-span-2">
+          <div class="w-10 h-10 rounded-xl bg-[var(--color-badge-amber-bg)] flex items-center justify-center mb-5 group-hover:bg-[var(--color-accent-amber)]/15 transition-colors">
+            <svg class="w-5 h-5 text-[var(--color-accent-amber)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182"/>
             </svg>
           </div>
-          <h3 class="text-[#0F172A] font-semibold text-base mb-2">Mejora continua</h3>
-          <p class="text-[#64748B] text-sm leading-relaxed max-w-xl">
+          <h3 class="text-[var(--color-text-primary)] font-semibold text-base mb-2">Mejora continua</h3>
+          <p class="text-[var(--color-text-muted)] text-sm leading-relaxed max-w-xl">
             Mantener la mejora continua del Sistema de Gestión integrado con el compromiso de la alta dirección
             y de todo el personal involucrado en los procesos de certificación.
           </p>
