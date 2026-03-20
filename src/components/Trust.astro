@@ -50,41 +50,6 @@ const pillars = [
       </p>
     </div>
 
-    <!-- ═══════════════════════════════════════════════════════════
-         📸 SLOT DE IMAGEN — EQUIPO / INSTALACIONES (panorámica)
-         ───────────────────────────────────────────────────────────
-         Tamaño recomendado : 1200 × 500 px  (ratio 12:5)
-         Ruta del archivo   : /images/nosotros.jpg
-         Sugerencia         : foto del equipo de trabajo, oficinas,
-                              laboratorio o instalaciones de LLC.
-         ───────────────────────────────────────────────────────────
-         Cuando tengas la imagen, reemplaza TODO el bloque
-         (desde este comentario hasta la etiqueta de cierre </div>)
-         por:
-
-         <div class="mb-16 rounded-2xl overflow-hidden aspect-[12/5]">
-           <img
-             src="/images/nosotros.jpg"
-             alt="Equipo LLC Certificaciones"
-             class="w-full h-full object-cover"
-           />
-         </div>
-         ═══════════════════════════════════════════════════════════ -->
-    <div class="mb-16 rounded-2xl overflow-hidden aspect-[12/5] bg-[var(--color-placeholder-bg)] border-2 border-dashed border-[var(--color-placeholder-border)] flex flex-col items-center justify-center gap-3">
-      <div class="w-14 h-14 rounded-2xl bg-[var(--color-light-blue-bg)] flex items-center justify-center">
-        <svg class="w-7 h-7 text-[var(--color-placeholder-icon)]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-        </svg>
-      </div>
-      <div class="text-center">
-        <p class="text-[var(--color-placeholder-text)] font-semibold text-sm mb-1">📸 Foto del equipo o instalaciones</p>
-        <p class="text-[var(--color-placeholder-sub)] text-xs leading-relaxed">
-          Reemplaza este bloque con tu foto panorámica<br/>
-          <span class="font-mono text-[10px]">/images/nosotros.jpg · 1200 × 500 px recomendado</span>
-        </p>
-      </div>
-    </div>
-
     <!-- Grid de pilares -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {pillars.map((pillar, i) => (
