@@ -93,160 +93,229 @@
         </div>
       </div>
 
-      <!-- ── Col derecha: visual animado con GSAP ── -->
-      <!--
-        📸 SLOT DE IMAGEN — HERO
-        ─────────────────────────────────────────────────────────────
-        Cuando tengas tu foto, reemplaza TODO el bloque #hero-visual
-        (el <div id="hero-visual"> completo) por:
+      <!-- ── Col derecha: Card Stack ── -->
+      <div id="hero-visual" class="hidden lg:flex flex-col items-center justify-center gap-5" style="opacity:0">
 
-          <div class="hidden lg:flex items-center justify-center">
-            <img
-              src="/images/hero.jpg"
-              alt="LLC Certificaciones — laboratorio y procesos"
-              class="w-full max-w-md rounded-2xl object-cover shadow-2xl"
-            />
-          </div>
-
-        Tamaño recomendado: 600 × 720 px  (ratio 5:6)
-        ─────────────────────────────────────────────────────────────
-      -->
-      <div id="hero-visual" class="hidden lg:flex items-center justify-center" style="opacity:0">
-        <div class="relative w-full max-w-[400px] mx-auto" style="aspect-ratio: 5/6">
-
-          <!-- SVG: anillos + líneas de conexión -->
-          <svg
-            id="hero-svg"
-            class="absolute inset-0 w-full h-full"
-            viewBox="0 0 400 480"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <!-- Anillo exterior (rota en sentido horario) -->
-            <circle
-              id="ring1"
-              cx="200" cy="240" r="188"
-              stroke="white" stroke-opacity="0.07"
-              stroke-width="1"
-              stroke-dasharray="5 10"
-            />
-            <!-- Anillo medio (rota en sentido antihorario) -->
-            <circle
-              id="ring2"
-              cx="200" cy="240" r="128"
-              stroke="white" stroke-opacity="0.12"
-              stroke-width="1"
-              stroke-dasharray="3 7"
-            />
-            <!-- Anillo interior -->
-            <circle
-              id="ring3"
-              cx="200" cy="240" r="70"
-              stroke="white" stroke-opacity="0.18"
-              stroke-width="1"
-            />
-
-            <!--
-              Líneas de conexión al sello central
-              ─────────────────────────────────────────────────────
-              viewBox = "0 0 400 480"  →  1 unit ≈ 1 CSS px a 400px ancho
-              Sello: centro (200,240), semiancho=56px (w-28/2)
-
-              Cálculo de badge en unidades SVG:
-               l0 RETIE   top:4%=19,  minW=118 → bottom=71, cx=200
-               l1 RETILAP top:25%=120, right:0, minW=114 → left=286, bottom=172
-               l2 RETIQ   bottom:10%→top=380, right:2%, minW=114 → left=278
-               l3 NV      cy:52%=250, left:0, minW=106 → right=106
-              ─────────────────────────────────────────────────────
-            -->
-
-            <!-- RETIE: sello borde-superior → borde inferior del badge -->
-            <line id="l0" x1="200" y1="184" x2="200" y2="71"
-              stroke="white" stroke-opacity="0.25" stroke-width="1"
-              stroke-dasharray="200" stroke-dashoffset="200"/>
-
-            <!-- RETILAP: sello borde-derecho → esquina inf-izq del badge -->
-            <line id="l1" x1="258" y1="216" x2="286" y2="172"
-              stroke="white" stroke-opacity="0.25" stroke-width="1"
-              stroke-dasharray="200" stroke-dashoffset="200"/>
-
-            <!-- RETIQ: sello borde-inferior → esquina sup-izq del badge -->
-            <line id="l2" x1="231" y1="296" x2="278" y2="380"
-              stroke="white" stroke-opacity="0.25" stroke-width="1"
-              stroke-dasharray="200" stroke-dashoffset="200"/>
-
-            <!-- NV: sello borde-izquierdo → borde derecho del badge (cy=250) -->
-            <line id="l3" x1="144" y1="240" x2="106" y2="249"
-              stroke="white" stroke-opacity="0.25" stroke-width="1"
-              stroke-dasharray="200" stroke-dashoffset="200"/>
-
-            <!-- Puntos decorativos en el anillo medio -->
-            <circle cx="200" cy="112" r="4" fill="#F59E0B" opacity="0.8"/>
-            <circle cx="328" cy="176" r="3" fill="white"   opacity="0.5"/>
-            <circle cx="316" cy="320" r="4" fill="#60A5FA" opacity="0.7"/>
-            <circle cx="85"  cy="285" r="3" fill="white"   opacity="0.4"/>
+        <!-- Hint superior -->
+        <p class="text-white/40 text-xs font-medium tracking-widest uppercase flex items-center gap-2 select-none">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>
           </svg>
+          Arrastra · Toca para voltear
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+          </svg>
+        </p>
 
-          <!-- Sello central LLC -->
-          <div
-            id="center-seal"
-            class="absolute"
-            style="top:50%; left:50%; transform:translate(-50%,-50%);"
-          >
-            <div class="w-28 h-28 rounded-2xl flex flex-col items-center justify-center shadow-2xl"
-              style="background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.05) 100%); border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(8px);">
-              <svg class="w-10 h-10 text-[#F59E0B] mb-0.5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-              </svg>
-              <span class="text-white font-black text-base tracking-tight leading-none">LLC</span>
-              <span class="text-white/50 text-[9px] font-semibold tracking-[0.2em] uppercase mt-0.5">Certif.</span>
+        <!-- Deck container -->
+        <div id="card-deck" class="relative w-full max-w-[340px]" style="height:440px; perspective:1200px;">
+
+          <!-- ── CARTA 0: RETIE ── -->
+          <div class="cert-card absolute inset-0 select-none" data-idx="0"
+            style="box-shadow:0 24px 64px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.35);">
+            <div class="cert-card-inner w-full h-full rounded-2xl">
+              <!-- FRENTE -->
+              <div class="cert-card-face cert-card-front absolute inset-0 rounded-2xl overflow-hidden"
+                style="background:linear-gradient(160deg,#0D2F7A 0%,#061A4A 100%); border:1px solid rgba(96,165,250,0.30);">
+                <!--
+                  📸 SLOT IMAGEN — CARTA RETIE
+                  Reemplaza este bloque por:
+                  <img src="/images/card-retie.jpg" alt="RETIE" class="w-full object-cover" style="height:58%;" />
+                  Tamaño recomendado: 340 × 256 px
+                -->
+                <div class="w-full flex items-center justify-center" style="height:58%; background:linear-gradient(135deg,rgba(96,165,250,0.10) 0%,rgba(16,40,100,0.45) 100%); border-bottom:1px solid rgba(96,165,250,0.15);">
+                  <div class="flex flex-col items-center gap-2" style="opacity:0.35;">
+                    <svg class="w-11 h-11" style="color:#93C5FD;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3 9.75h18M3 12h18M3 14.25h18"/>
+                    </svg>
+                    <span style="color:#93C5FD; font-size:11px; font-weight:500;">340 × 256 px</span>
+                  </div>
+                </div>
+                <div style="padding:20px 24px 16px;">
+                  <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+                    <span style="color:#F59E0B; font-weight:900; font-size:22px; letter-spacing:-0.5px;">RETIE</span>
+                    <span style="padding:2px 8px; border-radius:20px; font-size:10px; font-weight:600; color:#93C5FD; background:rgba(30,64,175,0.5); border:1px solid rgba(96,165,250,0.3);">Reglamento</span>
+                  </div>
+                  <p style="color:rgba(255,255,255,0.55); font-size:13px; line-height:1.4; margin-bottom:10px;">Reglamento Técnico de Instalaciones Eléctricas</p>
+                  <div style="display:flex; align-items:center; gap:5px; color:rgba(147,197,253,0.5); font-size:11px; font-weight:500;">
+                    <svg style="width:13px;height:13px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-6-6m0 0l6-6m-6 6h12"/>
+                    </svg>
+                    Toca para ver productos
+                  </div>
+                </div>
+              </div>
+              <!-- REVERSO -->
+              <div class="cert-card-face cert-card-back absolute inset-0 rounded-2xl"
+                style="background:linear-gradient(160deg,#1040A0 0%,#0B1F4B 100%); border:1px solid rgba(96,165,250,0.40); padding:28px 28px 24px;">
+                <div style="color:#60A5FA; font-weight:900; font-size:20px; margin-bottom:4px;">RETIE</div>
+                <div style="color:rgba(255,255,255,0.45); font-size:11px; margin-bottom:20px;">Productos certificables bajo este reglamento</div>
+                <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px;">
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#F59E0B;flex-shrink:0;"></span>Tableros eléctricos</li>
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#F59E0B;flex-shrink:0;"></span>Transformadores de distribución</li>
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#F59E0B;flex-shrink:0;"></span>Conductores y cables eléctricos</li>
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#F59E0B;flex-shrink:0;"></span>Redes eléctricas internas</li>
+                </ul>
+                <div style="margin-top:auto; padding-top:20px; border-top:1px solid rgba(255,255,255,0.10); color:rgba(255,255,255,0.28); font-size:11px; text-align:center; position:absolute; bottom:20px; left:28px; right:28px;">Toca de nuevo para volver</div>
+              </div>
             </div>
           </div>
 
-          <!-- Badge RETIE — arriba centro -->
-          <div id="badge-0" class="absolute" style="top:4%; left:50%; transform:translateX(-50%);">
-            <div class="px-4 py-2.5 rounded-xl text-center min-w-[118px]"
-              style="background:rgba(16,64,160,0.75); border:1px solid rgba(96,165,250,0.35); backdrop-filter:blur(6px);">
-              <div class="text-[#F59E0B] font-black text-sm leading-tight">RETIE</div>
-              <div class="text-white/55 text-[10px] font-medium mt-0.5">Instalaciones eléctricas</div>
+          <!-- ── CARTA 1: RETILAP ── -->
+          <div class="cert-card absolute inset-0 select-none" data-idx="1"
+            style="box-shadow:0 24px 64px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.35);">
+            <div class="cert-card-inner w-full h-full rounded-2xl">
+              <div class="cert-card-face cert-card-front absolute inset-0 rounded-2xl overflow-hidden"
+                style="background:linear-gradient(160deg,#7C2D12 0%,#431407 100%); border:1px solid rgba(252,211,77,0.28);">
+                <!--
+                  📸 SLOT IMAGEN — CARTA RETILAP
+                  Reemplaza este bloque por:
+                  <img src="/images/card-retilap.jpg" alt="RETILAP" class="w-full object-cover" style="height:58%;" />
+                -->
+                <div class="w-full flex items-center justify-center" style="height:58%; background:linear-gradient(135deg,rgba(252,211,77,0.09) 0%,rgba(120,45,18,0.45) 100%); border-bottom:1px solid rgba(252,211,77,0.14);">
+                  <div class="flex flex-col items-center gap-2" style="opacity:0.35;">
+                    <svg class="w-11 h-11" style="color:#FDE68A;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
+                    </svg>
+                    <span style="color:#FDE68A; font-size:11px; font-weight:500;">340 × 256 px</span>
+                  </div>
+                </div>
+                <div style="padding:20px 24px 16px;">
+                  <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+                    <span style="color:#FCD34D; font-weight:900; font-size:22px; letter-spacing:-0.5px;">RETILAP</span>
+                    <span style="padding:2px 8px; border-radius:20px; font-size:10px; font-weight:600; color:#FDE68A; background:rgba(120,53,15,0.6); border:1px solid rgba(252,211,77,0.28);">Reglamento</span>
+                  </div>
+                  <p style="color:rgba(255,255,255,0.55); font-size:13px; line-height:1.4; margin-bottom:10px;">Reglamento Técnico de Iluminación y Alumbrado Público</p>
+                  <div style="display:flex; align-items:center; gap:5px; color:rgba(253,230,138,0.45); font-size:11px; font-weight:500;">
+                    <svg style="width:13px;height:13px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-6-6m0 0l6-6m-6 6h12"/>
+                    </svg>
+                    Toca para ver productos
+                  </div>
+                </div>
+              </div>
+              <div class="cert-card-face cert-card-back absolute inset-0 rounded-2xl"
+                style="background:linear-gradient(160deg,#92400E 0%,#431407 100%); border:1px solid rgba(252,211,77,0.40); padding:28px 28px 24px;">
+                <div style="color:#FCD34D; font-weight:900; font-size:20px; margin-bottom:4px;">RETILAP</div>
+                <div style="color:rgba(255,255,255,0.45); font-size:11px; margin-bottom:20px;">Productos certificables bajo este reglamento</div>
+                <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px;">
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#FCD34D;flex-shrink:0;"></span>Luminarias LED industriales</li>
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#FCD34D;flex-shrink:0;"></span>Lámparas de alumbrado público</li>
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#FCD34D;flex-shrink:0;"></span>Drivers y balastos electrónicos</li>
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#FCD34D;flex-shrink:0;"></span>Sistemas de iluminación decorativa</li>
+                </ul>
+                <div style="margin-top:auto; padding-top:20px; border-top:1px solid rgba(255,255,255,0.10); color:rgba(255,255,255,0.28); font-size:11px; text-align:center; position:absolute; bottom:20px; left:28px; right:28px;">Toca de nuevo para volver</div>
+              </div>
             </div>
           </div>
 
-          <!-- Badge RETILAP — derecha -->
-          <div id="badge-1" class="absolute" style="top:25%; right:0;">
-            <div class="px-4 py-2.5 rounded-xl text-center min-w-[114px]"
-              style="background:rgba(120,53,15,0.7); border:1px solid rgba(251,191,36,0.35); backdrop-filter:blur(6px);">
-              <div class="text-[#FCD34D] font-black text-sm leading-tight">RETILAP</div>
-              <div class="text-white/55 text-[10px] font-medium mt-0.5">Iluminación</div>
+          <!-- ── CARTA 2: RETIQ ── -->
+          <div class="cert-card absolute inset-0 select-none" data-idx="2"
+            style="box-shadow:0 24px 64px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.35);">
+            <div class="cert-card-inner w-full h-full rounded-2xl">
+              <div class="cert-card-face cert-card-front absolute inset-0 rounded-2xl overflow-hidden"
+                style="background:linear-gradient(160deg,#064E3B 0%,#022C22 100%); border:1px solid rgba(52,211,153,0.28);">
+                <!--
+                  📸 SLOT IMAGEN — CARTA RETIQ
+                  Reemplaza este bloque por:
+                  <img src="/images/card-retiq.jpg" alt="RETIQ" class="w-full object-cover" style="height:58%;" />
+                -->
+                <div class="w-full flex items-center justify-center" style="height:58%; background:linear-gradient(135deg,rgba(52,211,153,0.09) 0%,rgba(6,78,59,0.45) 100%); border-bottom:1px solid rgba(52,211,153,0.14);">
+                  <div class="flex flex-col items-center gap-2" style="opacity:0.35;">
+                    <svg class="w-11 h-11" style="color:#6EE7B7;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/>
+                    </svg>
+                    <span style="color:#6EE7B7; font-size:11px; font-weight:500;">340 × 256 px</span>
+                  </div>
+                </div>
+                <div style="padding:20px 24px 16px;">
+                  <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+                    <span style="color:#34D399; font-weight:900; font-size:22px; letter-spacing:-0.5px;">RETIQ</span>
+                    <span style="padding:2px 8px; border-radius:20px; font-size:10px; font-weight:600; color:#6EE7B7; background:rgba(6,78,59,0.7); border:1px solid rgba(52,211,153,0.28);">Reglamento</span>
+                  </div>
+                  <p style="color:rgba(255,255,255,0.55); font-size:13px; line-height:1.4; margin-bottom:10px;">Reglamento Técnico de Etiquetado Energético</p>
+                  <div style="display:flex; align-items:center; gap:5px; color:rgba(110,231,183,0.45); font-size:11px; font-weight:500;">
+                    <svg style="width:13px;height:13px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-6-6m0 0l6-6m-6 6h12"/>
+                    </svg>
+                    Toca para ver productos
+                  </div>
+                </div>
+              </div>
+              <div class="cert-card-face cert-card-back absolute inset-0 rounded-2xl"
+                style="background:linear-gradient(160deg,#065F46 0%,#022C22 100%); border:1px solid rgba(52,211,153,0.40); padding:28px 28px 24px;">
+                <div style="color:#34D399; font-weight:900; font-size:20px; margin-bottom:4px;">RETIQ</div>
+                <div style="color:rgba(255,255,255,0.45); font-size:11px; margin-bottom:20px;">Productos certificables bajo este reglamento</div>
+                <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px;">
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#34D399;flex-shrink:0;"></span>Aires acondicionados</li>
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#34D399;flex-shrink:0;"></span>Refrigeradores y congeladores</li>
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#34D399;flex-shrink:0;"></span>Lavadoras domésticas</li>
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#34D399;flex-shrink:0;"></span>Televisores y monitores</li>
+                </ul>
+                <div style="margin-top:auto; padding-top:20px; border-top:1px solid rgba(255,255,255,0.10); color:rgba(255,255,255,0.28); font-size:11px; text-align:center; position:absolute; bottom:20px; left:28px; right:28px;">Toca de nuevo para volver</div>
+              </div>
             </div>
           </div>
 
-          <!-- Badge RETIQ — abajo derecha -->
-          <div id="badge-2" class="absolute" style="bottom:10%; right:2%;">
-            <div class="px-4 py-2.5 rounded-xl text-center min-w-[114px]"
-              style="background:rgba(6,78,59,0.7); border:1px solid rgba(52,211,153,0.35); backdrop-filter:blur(6px);">
-              <div class="text-emerald-300 font-black text-sm leading-tight">RETIQ</div>
-              <div class="text-white/55 text-[10px] font-medium mt-0.5">Eficiencia energética</div>
+          <!-- ── CARTA 3: Normas Voluntarias ── -->
+          <div class="cert-card absolute inset-0 select-none" data-idx="3"
+            style="box-shadow:0 24px 64px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.35);">
+            <div class="cert-card-inner w-full h-full rounded-2xl">
+              <div class="cert-card-face cert-card-front absolute inset-0 rounded-2xl overflow-hidden"
+                style="background:linear-gradient(160deg,#4C1D95 0%,#2E1065 100%); border:1px solid rgba(167,139,250,0.28);">
+                <!--
+                  📸 SLOT IMAGEN — CARTA NORMAS VOLUNTARIAS
+                  Reemplaza este bloque por:
+                  <img src="/images/card-nv.jpg" alt="Normas Voluntarias" class="w-full object-cover" style="height:58%;" />
+                -->
+                <div class="w-full flex items-center justify-center" style="height:58%; background:linear-gradient(135deg,rgba(167,139,250,0.09) 0%,rgba(76,29,149,0.45) 100%); border-bottom:1px solid rgba(167,139,250,0.14);">
+                  <div class="flex flex-col items-center gap-2" style="opacity:0.35;">
+                    <svg class="w-11 h-11" style="color:#C4B5FD;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/>
+                    </svg>
+                    <span style="color:#C4B5FD; font-size:11px; font-weight:500;">340 × 256 px</span>
+                  </div>
+                </div>
+                <div style="padding:20px 24px 16px;">
+                  <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+                    <span style="color:#A78BFA; font-weight:900; font-size:22px; letter-spacing:-0.5px;">N. Voluntarias</span>
+                    <span style="padding:2px 8px; border-radius:20px; font-size:10px; font-weight:600; color:#C4B5FD; background:rgba(76,29,149,0.7); border:1px solid rgba(167,139,250,0.28);">Voluntaria</span>
+                  </div>
+                  <p style="color:rgba(255,255,255,0.55); font-size:13px; line-height:1.4; margin-bottom:10px;">Certificación bajo Normas Técnicas Colombianas</p>
+                  <div style="display:flex; align-items:center; gap:5px; color:rgba(196,181,253,0.45); font-size:11px; font-weight:500;">
+                    <svg style="width:13px;height:13px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-6-6m0 0l6-6m-6 6h12"/>
+                    </svg>
+                    Toca para ver productos
+                  </div>
+                </div>
+              </div>
+              <div class="cert-card-face cert-card-back absolute inset-0 rounded-2xl"
+                style="background:linear-gradient(160deg,#5B21B6 0%,#2E1065 100%); border:1px solid rgba(167,139,250,0.40); padding:28px 28px 24px;">
+                <div style="color:#A78BFA; font-weight:900; font-size:20px; margin-bottom:4px;">Normas Voluntarias</div>
+                <div style="color:rgba(255,255,255,0.45); font-size:11px; margin-bottom:20px;">Productos certificables bajo NTC</div>
+                <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px;">
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#A78BFA;flex-shrink:0;"></span>Enchufes e interruptores</li>
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#A78BFA;flex-shrink:0;"></span>Breakers y protecciones eléctricas</li>
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#A78BFA;flex-shrink:0;"></span>Cables de baja y media tensión</li>
+                  <li style="display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.80); font-size:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#A78BFA;flex-shrink:0;"></span>Tomacorrientes y clavijas</li>
+                </ul>
+                <div style="margin-top:auto; padding-top:20px; border-top:1px solid rgba(255,255,255,0.10); color:rgba(255,255,255,0.28); font-size:11px; text-align:center; position:absolute; bottom:20px; left:28px; right:28px;">Toca de nuevo para volver</div>
+              </div>
             </div>
           </div>
-
-          <!-- Badge Normas Voluntarias — izquierda -->
-          <div id="badge-3" class="absolute" style="top:52%; left:0; transform:translateY(-50%);">
-            <div class="px-4 py-2.5 rounded-xl text-center min-w-[106px]"
-              style="background:rgba(76,29,149,0.7); border:1px solid rgba(167,139,250,0.35); backdrop-filter:blur(6px);">
-              <div class="text-violet-300 font-black text-sm leading-tight">N. VOL.</div>
-              <div class="text-white/55 text-[10px] font-medium mt-0.5">Normas Voluntarias</div>
-            </div>
-          </div>
-
-          <!-- Partículas flotantes -->
-          <div id="p0" class="absolute w-2   h-2   rounded-full bg-[#F59E0B]/70" style="top:19%; left:16%;"></div>
-          <div id="p1" class="absolute w-1.5 h-1.5 rounded-full bg-white/45"      style="top:68%; left:76%;"></div>
-          <div id="p2" class="absolute w-2   h-2   rounded-full bg-blue-400/55"   style="top:42%; left:82%;"></div>
-          <div id="p3" class="absolute w-1   h-1   rounded-full bg-white/30"      style="top:80%; left:28%;"></div>
-          <div id="p4" class="absolute w-1.5 h-1.5 rounded-full bg-[#F59E0B]/50" style="top:36%; left:8%;"></div>
 
         </div>
+        <!-- fin #card-deck -->
+
+        <!-- Indicador de posición (dots) -->
+        <div id="card-dots" class="flex items-center gap-2">
+          <div class="deck-dot rounded-full bg-white transition-all duration-300" style="width:20px;height:8px;opacity:1;"></div>
+          <div class="deck-dot rounded-full bg-white transition-all duration-300" style="width:8px;height:8px;opacity:0.35;"></div>
+          <div class="deck-dot rounded-full bg-white transition-all duration-300" style="width:8px;height:8px;opacity:0.35;"></div>
+          <div class="deck-dot rounded-full bg-white transition-all duration-300" style="width:8px;height:8px;opacity:0.35;"></div>
+        </div>
+
       </div>
       <!-- fin #hero-visual -->
 
@@ -261,90 +330,177 @@
   </div>
 </section>
 
+<style>
+  .cert-card { cursor: grab; }
+  .cert-card:active { cursor: grabbing; }
+  .cert-card-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .cert-card.is-flipped .cert-card-inner {
+    transform: rotateY(180deg);
+  }
+  .cert-card-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .cert-card-back {
+    transform: rotateY(180deg);
+  }
+</style>
+
 <script>
   import gsap from 'gsap';
+  import { Draggable } from 'gsap/Draggable';
+  gsap.registerPlugin(Draggable);
 
-  // ─────────────────────────────────────────────
-  // Estados iniciales — todo invisible antes de animar
-  // ─────────────────────────────────────────────
+  // ─── Entrada del texto (col izquierda) ───────────────────────────────
   gsap.set('#hero-badge-pill', { opacity: 0, y: -20 });
   gsap.set('#hero-h1',         { opacity: 0, y: 35  });
   gsap.set('#hero-p',          { opacity: 0, y: 25  });
   gsap.set('#hero-cta-1',      { opacity: 0, y: 20, scale: 0.95 });
   gsap.set('#hero-cta-2',      { opacity: 0, y: 20, scale: 0.95 });
   gsap.set('.hero-stat',       { opacity: 0, y: 15  });
+  gsap.set('#hero-visual',     { opacity: 0 });
 
-  gsap.set('#hero-visual',                                { opacity: 0 });
-  gsap.set('#center-seal',                                { opacity: 0, scale: 0.3 });
-  gsap.set(['#badge-0','#badge-1','#badge-2','#badge-3'], { opacity: 0, scale: 0.6 });
-  gsap.set(['#p0','#p1','#p2','#p3','#p4'],              { opacity: 0 });
-
-  // ─────────────────────────────────────────────
-  // Timeline de entrada
-  // ─────────────────────────────────────────────
   const tl = gsap.timeline({ delay: 0.25, defaults: { ease: 'power3.out' } });
-
   tl.to('#hero-badge-pill', { opacity: 1, y: 0, duration: 0.55 })
     .to('#hero-h1',          { opacity: 1, y: 0, duration: 0.70 }, '-=0.30')
     .to('#hero-p',           { opacity: 1, y: 0, duration: 0.60 }, '-=0.40')
     .to('#hero-cta-1',       { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: 'back.out(1.5)' }, '-=0.25')
     .to('#hero-cta-2',       { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: 'back.out(1.5)' }, '-=0.35')
     .to('.hero-stat',        { opacity: 1, y: 0, duration: 0.35, stagger: 0.09 }, '-=0.20')
+    .to('#hero-visual',      { opacity: 1, duration: 0.50 }, 0.50)
+    .add(initDeck, 0.80);
 
-    .to('#hero-visual', { opacity: 1, duration: 0.40 }, 0.50)
-    .to('#center-seal', { opacity: 1, scale: 1, duration: 0.85, ease: 'back.out(1.8)' }, 0.65)
-    .to(['#l0','#l1','#l2','#l3'], {
-        strokeDashoffset: 0,
-        duration: 0.75,
-        stagger: 0.10,
-        ease: 'power2.inOut',
-      }, 0.95)
-    .to(['#badge-0','#badge-1','#badge-2','#badge-3'], {
-        opacity: 1, scale: 1,
-        duration: 0.50,
-        stagger: 0.13,
-        ease: 'back.out(1.6)',
-      }, 1.15)
-    .to(['#p0','#p1','#p2','#p3','#p4'], {
-        opacity: 1,
-        duration: 0.40,
-        stagger: 0.08,
-      }, 1.45);
+  // ─── Card Deck ────────────────────────────────────────────────────────
+  var cards       = Array.from(document.querySelectorAll('.cert-card'));
+  var order       = [0, 1, 2, 3];  // order[0] = índice de la carta en el tope
+  var isAnimating = false;
+  var wasDragged  = false;
+  var drags       = [];
 
-  // ─────────────────────────────────────────────
-  // Animaciones continuas (loop infinito)
-  // ─────────────────────────────────────────────
-  gsap.to('#badge-0', { y: -11, duration: 2.6, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1.60 });
-  gsap.to('#badge-1', { y:  -8, duration: 3.1, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1.90 });
-  gsap.to('#badge-2', { y: -13, duration: 2.3, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2.10 });
-  gsap.to('#badge-3', { y:  -9, duration: 2.9, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1.75 });
+  // Posiciones de apilado para cada slot (0 = tope)
+  var STACK = [
+    { y:  0, rotation:  0, scale: 1.00, opacity: 1.00, zIndex: 4 },
+    { y: 10, rotation: -2, scale: 0.97, opacity: 0.88, zIndex: 3 },
+    { y: 20, rotation: -4, scale: 0.94, opacity: 0.68, zIndex: 2 },
+    { y: 30, rotation: -6, scale: 0.91, opacity: 0.00, zIndex: 1 },
+  ];
 
-  gsap.to('#center-seal > div', {
-    scale: 1.05,
-    duration: 2.2,
-    repeat: -1, yoyo: true,
-    ease: 'sine.inOut',
-    delay: 1.80,
+  function initDeck() {
+    order.forEach(function(cardIdx, slot) {
+      var s = STACK[slot];
+      gsap.set(cards[cardIdx], { x: 0, y: s.y, rotation: s.rotation, scale: s.scale, opacity: s.opacity, zIndex: s.zIndex });
+    });
+    // Entrada de cartas desde abajo
+    for (var i = 0; i < 3; i++) {
+      gsap.from(cards[order[i]], {
+        y: STACK[i].y + 50,
+        opacity: 0,
+        duration: 0.65,
+        delay: i * 0.10,
+        ease: 'power3.out',
+      });
+    }
+    setupDrag();
+    updateDots();
+  }
+
+  function setupDrag() {
+    drags.forEach(function(d) { d.kill(); });
+    drags = [];
+    wasDragged = false;
+
+    var topIdx  = order[0];
+    var topCard = cards[topIdx];
+
+    drags = Draggable.create(topCard, {
+      type: 'x',
+      edgeResistance: 0.55,
+      minimumMovement: 8,
+      onDragStart: function() { wasDragged = false; },
+      onDrag: function() {
+        wasDragged = true;
+        var rot = (this.x / 260) * 20;
+        gsap.set(topCard, { rotation: rot });
+      },
+      onDragEnd: function() {
+        if (!wasDragged) return;
+        if (Math.abs(this.x) > 70) {
+          throwCard(this.x > 0 ? 1 : -1);
+        } else {
+          gsap.to(topCard, { x: 0, rotation: 0, duration: 0.5, ease: 'back.out(2.2)' });
+        }
+      },
+    });
+  }
+
+  function throwCard(dir) {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    var topIdx  = order[0];
+    var topCard = cards[topIdx];
+
+    // Quitar flip si está dado vuelta
+    topCard.classList.remove('is-flipped');
+
+    drags.forEach(function(d) { d.kill(); });
+    drags = [];
+
+    // Las cartas detrás suben un slot mientras la tope sale
+    for (var slot = 1; slot <= 2; slot++) {
+      var next = STACK[slot - 1];
+      gsap.to(cards[order[slot]], {
+        y: next.y, rotation: next.rotation, scale: next.scale,
+        opacity: next.opacity, zIndex: next.zIndex,
+        duration: 0.50, ease: 'power2.out', delay: 0.06,
+      });
+    }
+
+    // La carta tope sale volando
+    gsap.to(topCard, {
+      x: dir * 560,
+      y: dir > 0 ? 50 : -30,
+      rotation: dir * 28,
+      opacity: 0,
+      duration: 0.48,
+      ease: 'power2.in',
+      onComplete: function() {
+        var moved = order.shift();
+        order.push(moved);
+
+        // Resetear la carta que fue al fondo
+        var bottomIdx = order[3];
+        var bs = STACK[3];
+        gsap.set(cards[bottomIdx], {
+          x: 0, y: bs.y, rotation: bs.rotation,
+          scale: bs.scale, opacity: 0, zIndex: bs.zIndex,
+        });
+
+        isAnimating = false;
+        updateDots();
+        setupDrag();
+      },
+    });
+  }
+
+  function updateDots() {
+    var dots = document.querySelectorAll('.deck-dot');
+    dots.forEach(function(dot, i) {
+      var active = (order[0] === i);
+      dot.style.width   = active ? '20px' : '8px';
+      dot.style.opacity = active ? '1'    : '0.35';
+    });
+  }
+
+  // Click → voltear (solo la carta del tope, solo si no fue arrastre)
+  cards.forEach(function(card, i) {
+    card.addEventListener('click', function() {
+      if (wasDragged) { wasDragged = false; return; }
+      if (order[0] !== i) return;
+      card.classList.toggle('is-flipped');
+    });
   });
-
-  gsap.to('#ring1', {
-    rotation: 360,
-    transformOrigin: '200px 240px',
-    duration: 22,
-    repeat: -1,
-    ease: 'none',
-  });
-  gsap.to('#ring2', {
-    rotation: -360,
-    transformOrigin: '200px 240px',
-    duration: 16,
-    repeat: -1,
-    ease: 'none',
-  });
-
-  gsap.to('#p0', { y: -14, x:  7, duration: 3.2, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2.00 });
-  gsap.to('#p1', { y:  11, x: -6, duration: 2.7, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2.30 });
-  gsap.to('#p2', { y: -10, x: -9, duration: 3.6, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1.85 });
-  gsap.to('#p3', { y:   9, x:  5, duration: 2.9, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2.55 });
-  gsap.to('#p4', { y: -12, x:  8, duration: 3.0, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2.15 });
 </script>

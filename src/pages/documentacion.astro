@@ -1,0 +1,237 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const documents = [
+  { name: 'Gestión Comercial', url: 'https://llccolombia.com/wp-content/uploads/2025/09/GESTION-COMERCIAL.pdf', type: 'PDF', category: 'comercial' },
+  { name: 'Servicio Certificación Producto', url: 'https://llccolombia.com/wp-content/uploads/2025/09/SERVICIO-CERTIFICACION-PRODUCTO.pdf', type: 'PDF', category: 'comercial' },
+  { name: 'Solicitud Servicio de Evaluación de la Conformidad', url: 'https://llccolombia.com/wp-content/uploads/2025/10/SOLICITUD-SERVICIO-DE-EVALUACION-DE-LA-CONFORMIDAD.xlsx', type: 'XLSX', category: 'comercial' },
+  { name: 'Acuerdo de Certificación — Términos y Condiciones', url: 'https://llccolombia.com/wp-content/uploads/2025/10/ACUERDO-DE-CERTIFICACION.-TERMINOS-Y-CONDICIONES-SERVICIO-CERTIFICACION-PRODUCTO.pdf', type: 'PDF', category: 'comercial' },
+  { name: 'Uso del Sello y Certificado LLC', url: 'https://llccolombia.com/wp-content/uploads/2025/10/USO-DEL-SELLO-Y-CERTIFICADO-LLC.pdf', type: 'PDF', category: 'certificacion' },
+  { name: 'Quejas y Apelaciones', url: 'https://llccolombia.com/wp-content/uploads/2025/10/QUEJAS-Y-APELACIONES.pdf', type: 'PDF', category: 'certificacion' },
+  { name: 'Verificación y Control de Superintendencia de Industria y Comercio', url: 'https://llccolombia.com/wp-content/uploads/2025/10/VERIFICACION-Y-CONTROL-DE-SUPERINTENDENCIA-DE-INDUSTRIA-Y-COMERCIO.pdf', type: 'PDF', category: 'certificacion' },
+  { name: 'Formato Quejas y Apelaciones', url: 'https://llccolombia.com/wp-content/uploads/2024/01/7.-CPR-SG-FR-14-FORMATO-QUEJAS-Y-APELACIONES.pdf', type: 'PDF', category: 'certificacion' },
+  { name: 'Gestión de Imparcialidad', url: 'https://llccolombia.com/wp-content/uploads/2025/10/GESTION-DE-IMPARCIALIDAD.pdf', type: 'PDF', category: 'gestion' },
+  { name: 'Matriz de Riesgos a la Imparcialidad', url: 'https://llccolombia.com/wp-content/uploads/2025/10/MATRIZ-DE-RIESGOS-A-LA-IMPARCIALIDAD.xls', type: 'XLS', category: 'gestion' },
+  { name: 'Acuerdo de Confidencialidad entre LLC y el Cliente', url: 'https://llccolombia.com/wp-content/uploads/2025/10/ACUERDO-DE-CONFIDENCIALIDAD-ACUERDO-DE-CONFIDENCIALIDAD-ENTRE-LLC-Y-EL-CLIENTE.pdf', type: 'PDF', category: 'gestion' },
+  { name: 'Matriz de Riesgos', url: 'https://llccolombia.com/wp-content/uploads/2025/10/MATRIZ-DE-RIESGOS.xls', type: 'XLS', category: 'gestion' },
+  { name: 'Matriz de Partes Interesadas', url: 'https://llccolombia.com/wp-content/uploads/2025/10/MATRIZ-DE-PARTES-INTERESADAS.pdf', type: 'PDF', category: 'gestion' },
+  { name: 'Verificación Certificado ONAC', url: 'https://llccolombia.com/wp-content/uploads/2025/10/VERIFICACION-CERTIFICADO-ONAC.pdf', type: 'PDF', category: 'reglamentos' },
+  { name: 'Reglamento Técnico de Instalaciones Eléctricas — RETIE 2024', url: 'https://llccolombia.com/wp-content/uploads/2025/01/15.-CPR-GC-PR-06-REGLAMENTO-TECNICO-DE-INSTALACIONES-ELECTRICAS-RETIE-2024.pdf', type: 'PDF', category: 'reglamentos' },
+  { name: 'Reglamento Técnico de Iluminación y Alumbrado Público — RETILAP 2024', url: 'https://llccolombia.com/wp-content/uploads/2025/01/16.-CPR-GC-PR-07-REGLAMENTO-TECNICO-DE-ILUMINACION-Y-ALUMBRADO-PUBLICO-RETILAP-2024.pdf', type: 'PDF', category: 'reglamentos' },
+];
+
+function typeColor(type: string) {
+  if (type === 'PDF') return { bg: 'rgba(239,68,68,0.10)', text: '#EF4444', border: 'rgba(239,68,68,0.25)' };
+  return { bg: 'rgba(34,197,94,0.10)', text: '#22C55E', border: 'rgba(34,197,94,0.25)' };
+}
+
+function typeIcon(type: string) {
+  if (type === 'PDF') return 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z';
+  return 'M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0112 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375';
+}
+
+const categories = [
+  { key: 'all', label: 'Todos' },
+  { key: 'comercial', label: 'Comercial' },
+  { key: 'certificacion', label: 'Certificación' },
+  { key: 'gestion', label: 'Gestión' },
+  { key: 'reglamentos', label: 'Reglamentos' },
+];
+---
+
+<Layout
+  title="Documentación — LLC Certificaciones"
+  description="Descarga documentos, formatos, reglamentos y procedimientos de LLC Certificaciones. RETIE, RETILAP, quejas, acuerdos de certificación y más."
+>
+  <Header />
+
+  <!-- ═══ Hero banner ═══ -->
+  <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden" style="background: linear-gradient(135deg, #0B1F4B 0%, #0D2860 50%, #1040A0 100%);">
+    <div class="absolute inset-0 opacity-[0.05]" aria-hidden="true">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid-d" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid-d)"/>
+      </svg>
+    </div>
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-10" style="background:radial-gradient(circle,#1E6FE8 0%,transparent 70%); transform:translate(30%,-40%);" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+      <nav class="flex items-center gap-2 text-sm mb-8">
+        <a href="/" class="text-slate-400 hover:text-white transition-colors">Inicio</a>
+        <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+        </svg>
+        <span class="text-white font-medium">Documentación</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
+          <svg class="w-4 h-4 text-[#F59E0B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
+          </svg>
+          <span class="text-white/90 text-sm font-medium">Centro de documentos</span>
+        </div>
+        <h1 class="text-white font-extrabold leading-tight mb-5" style="font-size: clamp(2.25rem, 5vw, 3.25rem);">
+          Documentación y <span class="text-[#F59E0B]">recursos</span> descargables
+        </h1>
+        <p class="text-slate-300 text-lg leading-relaxed max-w-2xl">
+          De acuerdo a su requerimiento o consulta, podrá descargar cualquiera de nuestros documentos, formatos y reglamentos técnicos.
+        </p>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 60L1440 60L1440 30C1200 60 960 0 720 20C480 40 240 10 0 30L0 60Z" fill="white"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══ Filtros + Documentos ═══ -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+      <!-- Contador + filtros -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
+        <p class="text-[#64748B] text-sm">
+          <span class="text-[#0F172A] font-semibold">{documents.length}</span> documentos disponibles
+        </p>
+        <div class="flex flex-wrap gap-2" id="doc-filters">
+          {categories.map(cat => (
+            <button
+              class="doc-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border"
+              data-filter={cat.key}
+              style={cat.key === 'all'
+                ? 'background:#1040A0; color:white; border-color:#1040A0;'
+                : 'background:transparent; color:#64748B; border-color:#E2E8F0;'}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Grid de documentos -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="doc-grid">
+        {documents.map((doc, i) => {
+          const tc = typeColor(doc.type);
+          const icon = typeIcon(doc.type);
+          return (
+            <a
+              href={doc.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="doc-card group flex flex-col p-5 rounded-2xl border border-[#E2E8F0] hover:border-[#1040A0]/30 hover:shadow-md bg-white transition-all duration-200"
+              data-category={doc.category}
+            >
+              <div class="flex items-start gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={`background:${tc.bg}; border:1px solid ${tc.border};`}>
+                  <svg class="w-5 h-5" style={`color:${tc.text};`} fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d={icon}/>
+                  </svg>
+                </div>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold tracking-wider" style={`background:${tc.bg}; color:${tc.text}; border:1px solid ${tc.border};`}>
+                  {doc.type}
+                </span>
+              </div>
+
+              <h3 class="text-[#0F172A] font-semibold text-sm leading-snug mb-auto group-hover:text-[#1040A0] transition-colors">
+                {doc.name}
+              </h3>
+
+              <div class="flex items-center gap-1.5 mt-4 pt-3 border-t border-[#E2E8F0] text-[#1040A0] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+                </svg>
+                Descargar
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="py-16 lg:py-20" style="background: linear-gradient(135deg, #0B1F4B 0%, #1040A0 100%);">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F59E0B]/15 border border-[#F59E0B]/30 mb-6">
+          <svg class="w-4 h-4 text-[#F59E0B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"/>
+          </svg>
+          <span class="text-[#F59E0B] text-sm font-semibold">¿Necesitas ayuda?</span>
+        </div>
+        <h2 class="text-white font-bold text-2xl lg:text-3xl mb-4">
+          ¿No encuentras el documento que buscas?
+        </h2>
+        <p class="text-slate-300 leading-relaxed mb-8">
+          Si tienes dudas sobre algún documento o necesitas información adicional sobre nuestros procesos de certificación, contáctanos directamente.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="tel:3108369861"
+            class="inline-flex items-center gap-2 px-7 py-4 bg-[#F59E0B] hover:bg-[#FBBF24] text-[#0B1F4B] font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            Llámanos: 310 836 9861
+          </a>
+          <a
+            href="/"
+            class="inline-flex items-center gap-2 px-7 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/30 hover:border-white/50 transition-all duration-200 hover:-translate-y-0.5"
+          >
+            Volver al inicio
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Filtrado de documentos por categoría
+  var filterBtns = document.querySelectorAll('.doc-filter-btn');
+  var cards = document.querySelectorAll('.doc-card');
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var filter = btn.getAttribute('data-filter');
+
+      // Actualizar estilos de botones
+      filterBtns.forEach(function(b) {
+        if (b === btn) {
+          b.style.background = '#1040A0';
+          b.style.color = 'white';
+          b.style.borderColor = '#1040A0';
+        } else {
+          b.style.background = 'transparent';
+          b.style.color = '#64748B';
+          b.style.borderColor = '#E2E8F0';
+        }
+      });
+
+      // Mostrar/ocultar cards
+      cards.forEach(function(card) {
+        var cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
