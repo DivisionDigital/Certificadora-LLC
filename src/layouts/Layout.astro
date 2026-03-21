@@ -15,8 +15,8 @@ const {
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/images/inicio/favicon.png" />
+    <link rel="apple-touch-icon" href="/images/inicio/faviscon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
@@ -36,5 +36,58 @@ const {
   </head>
   <body class="antialiased transition-colors duration-300">
     <slot />
+
+    <!-- WhatsApp floating button -->
+    <a
+      href="https://wa.me/573108369861?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20certificaci%C3%B3n%20con%20LLC."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactar por WhatsApp"
+      class="whatsapp-btn"
+    >
+      <svg viewBox="0 0 32 32" fill="currentColor" class="w-6 h-6">
+        <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.502 1.14 6.742 3.072 9.372L1.062 31.11l5.898-1.952a15.93 15.93 0 008.044 2.166h.008C23.834 31.324 31 24.148 31 16.004S23.834 0 16.004 0zm9.31 22.618c-.392 1.104-1.942 2.02-3.198 2.288-.858.182-1.978.326-5.752-1.238-4.828-2.002-7.934-6.898-8.176-7.218-.232-.32-1.942-2.586-1.942-4.932s1.216-3.498 1.678-3.98c.382-.398 1.01-.578 1.61-.578.194 0 .368.01.524.018.462.02.694.048 1 .77.382.898 1.312 3.204 1.428 3.438.118.234.232.546.078.858-.146.32-.272.518-.54.806-.268.288-.524.508-.792.818-.248.272-.526.564-.216 1.044.31.472 1.378 2.272 2.96 3.68 2.032 1.81 3.674 2.398 4.248 2.636.462.194.774.164 1.072-.156.308-.33.654-.882 1.01-1.426.252-.388.572-.438 1.044-.252.478.176 3.028 1.428 3.548 1.688.52.26.866.39 .994.608.124.218.124 1.268-.268 2.37z"/>
+      </svg>
+    </a>
+
+    <style>
+      .whatsapp-btn {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.25rem;
+        height: 3.25rem;
+        border-radius: 50%;
+        background-color: #25D366;
+        color: white;
+        box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        animation: whatsapp-entrance 0.5s ease-out 1.5s both;
+      }
+
+      .whatsapp-btn:hover {
+        transform: scale(1.12);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.55);
+      }
+
+      .whatsapp-btn:active {
+        transform: scale(0.95);
+      }
+
+      @keyframes whatsapp-entrance {
+        from {
+          opacity: 0;
+          transform: scale(0) translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+    </style>
   </body>
 </html>
