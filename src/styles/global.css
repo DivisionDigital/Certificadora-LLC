@@ -83,11 +83,13 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   body {
     color: var(--color-text-primary);
     background-color: var(--color-surface);
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
