@@ -33,7 +33,15 @@ const pillars = [
 ];
 ---
 
-<section id="nosotros" class="py-24 lg:py-32 bg-[var(--color-surface-alt)]">
+<section id="nosotros" class="relative overflow-hidden py-24 lg:py-32">
+  <!-- Parallax background -->
+  <div id="trust-parallax-bg" class="absolute inset-0 -top-[25%] -bottom-[25%] w-full will-change-transform" aria-hidden="true">
+    <img src="/images/inicio/background.webp" alt="" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+  </div>
+  <!-- Overlay for readability -->
+  <div class="absolute inset-0 z-[1]" aria-hidden="true" style="background: var(--trust-overlay-bg);"></div>
+
+  <div class="relative z-10">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
     <!-- Encabezado -->
@@ -100,4 +108,27 @@ const pillars = [
       </div>
     </div>
   </div>
+  </div>
 </section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const parallaxBg = document.getElementById('trust-parallax-bg');
+
+  if (!prefersReducedMotion && parallaxBg) {
+    gsap.to(parallaxBg, {
+      yPercent: 25,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#nosotros',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+      },
+    });
+  }
+</script>

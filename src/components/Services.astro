@@ -34,7 +34,7 @@ const services = [
     badgeColor: 'bg-[var(--color-badge-emerald-bg)] text-[var(--color-badge-emerald-text)]',
     title: 'Certificación RETIQ',
     description: 'Reglamento Técnico de Etiquetado de Eficiencia Energética. Certificamos el consumo y eficiencia de equipos eléctricos y de gas para su correcta etiquetación.',
-    products: ['Motores monofásicos', 'Motores trifásicos', 'Electrodomésticos', 'Equipos de calentamiento'],
+    products: ['Motores monofásicos', 'Motores trifásicos'],
     icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>`,
     iconBg: 'bg-[var(--color-badge-emerald-bg)]',
     iconColor: '#059669',
@@ -85,15 +85,6 @@ const services = [
             class="absolute top-0 left-0 right-0 h-1 z-10 rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"
             style={`background: ${service.accentLine};`}
           ></div>
-
-          <!-- ═══════════════════════════════════════════════════════
-               📸 SLOT DE IMAGEN — TARJETA {service.title}
-               ─────────────────────────────────────────────────────
-               Tamaño recomendado : 800 × 400 px  (ratio 2:1)
-               Para agregar la imagen, edita el objeto en el array
-               services[] arriba y cambia el campo imgSrc:
-                 imgSrc: '/images/retie.jpg'   ← pon la ruta aquí
-               ═══════════════════════════════════════════════════════ -->
           {service.imgSrc ? (
             <div class="w-full aspect-video overflow-hidden">
               <img

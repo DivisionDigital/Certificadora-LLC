@@ -38,6 +38,7 @@
   --color-badge-emerald-text: #047857;
   --color-cta-gradient-start: rgba(16, 64, 160, 0.05);
   --color-cta-gradient-end: rgba(30, 111, 232, 0.05);
+  --trust-overlay-bg: rgba(248, 250, 252, 0.65);
 }
 
 /* ── Variables de tema (dark) ── */
@@ -73,6 +74,7 @@
   --color-badge-emerald-text: #34D399;
   --color-cta-gradient-start: rgba(96, 165, 250, 0.08);
   --color-cta-gradient-end: rgba(30, 111, 232, 0.08);
+  --trust-overlay-bg: rgba(15, 23, 42, 0.70);
 }
 
 @layer base {
