@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoImage from '../assets/inicio/logo.png';
+
 const quickLinks = [
   { label: 'Servicios', href: '#servicios' },
   { label: 'Nosotros', href: '/nosotros' },
@@ -24,12 +27,11 @@ const certifications = [
       <!-- Col 1: Marca -->
       <div class="lg:col-span-2">
         <a href="/" class="flex items-center gap-3 mb-5">
-          <img
-            src="/images/inicio/logo.png"
+          <Image
+            src={logoImage}
             alt="LLC Certificaciones"
             class="h-12 w-auto object-contain"
             loading="lazy"
-            decoding="async"
           />
         </a>
         <p class="text-slate-400 text-sm leading-relaxed max-w-sm mb-6">

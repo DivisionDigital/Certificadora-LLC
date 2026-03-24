@@ -1,4 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+import cardRetieImage from '../assets/inicio/card-retie.webp';
+import cardRetilapImage from '../assets/inicio/card-retilap.webp';
+import cardRetiqImage from '../assets/inicio/card-retiq.webp';
+import cardNvImage from '../assets/inicio/card-nv.webp';
+
 const services = [
   {
     badge: 'RETIE',
@@ -13,7 +19,7 @@ const services = [
     // 📸 IMAGEN TARJETA — ruta del archivo en public/images/
     // Reemplaza el valor de imgSrc con la ruta real. Ej: '/images/retie.jpg'
     // Tamaño recomendado: 800 × 400 px (ratio 2:1)
-    imgSrc: '/images/inicio/card-retie.webp',
+    imgSrc: cardRetieImage,
     imgAlt: 'Certificación RETIE — materiales eléctricos',
   },
   {
@@ -26,7 +32,7 @@ const services = [
     iconBg: 'bg-[var(--color-badge-amber-bg)]',
     iconColor: '#D97706',
     accentLine: '#F59E0B',
-    imgSrc: '/images/inicio/card-retilap.webp',
+    imgSrc: cardRetilapImage,
     imgAlt: 'Certificación RETILAP — iluminación y alumbrado',
   },
   {
@@ -39,7 +45,7 @@ const services = [
     iconBg: 'bg-[var(--color-badge-emerald-bg)]',
     iconColor: '#059669',
     accentLine: '#10B981',
-    imgSrc: '/images/inicio/card-retiq.webp',
+    imgSrc: cardRetiqImage,
     imgAlt: 'Certificación RETIQ — etiquetado energético',
   },
   {
@@ -52,7 +58,7 @@ const services = [
     iconBg: 'bg-violet-50',
     iconColor: '#7C3AED',
     accentLine: '#8B5CF6',
-    imgSrc: '/images/inicio/card-nv.webp',
+    imgSrc: cardNvImage,
     imgAlt: 'Normas Voluntarias — certificación técnica',
   },
 ];
@@ -87,10 +93,11 @@ const services = [
           ></div>
           {service.imgSrc ? (
             <div class="w-full aspect-video overflow-hidden">
-              <img
+              <Image
                 src={service.imgSrc}
                 alt={service.imgAlt}
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
               />
             </div>
           ) : (

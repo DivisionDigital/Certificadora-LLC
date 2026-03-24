@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoImage from '../assets/inicio/logo.png';
+
 const navLinks = [
   { label: 'Inicio', href: '/' },
   { label: 'Nosotros', href: '/nosotros' },
@@ -17,12 +20,11 @@ const navLinks = [
 
       <!-- Logo -->
       <a href="/" class="flex items-center gap-3 group flex-shrink-0">
-        <img
-          src="/images/inicio/logo.png"
+        <Image
+          src={logoImage}
           alt="LLC Certificaciones"
           class="h-10 w-auto object-contain"
           loading="eager"
-          decoding="async"
         />
       </a>
 

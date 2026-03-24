@@ -1,4 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+import cardRetieImage from '../assets/inicio/card-retie.webp';
+import cardRetilapImage from '../assets/inicio/card-retilap.webp';
+import cardRetiqImage from '../assets/inicio/card-retiq.webp';
+import cardNvImage from '../assets/inicio/card-nv.webp';
 ---
 
 <section
@@ -46,10 +51,11 @@
         </div>
 
         <h1 id="hero-h1" class="text-white font-extrabold leading-tight mb-6"
-          style="font-size: clamp(2.25rem, 5vw, 3.5rem);">
-          Aliado estratégico para la
-          <span class="text-[#F59E0B]"> certificación</span> de productos
-          eléctricos y electrónicos
+          style="font-size: clamp(1.65rem, 5vw, 3.5rem);">
+          Aliado estratégico para la certificación de productos:
+          <span class="block text-[#F59E0B] min-h-[1.2em]">
+            <span id="hero-typeword"></span><span id="hero-cursor" style="animation: tw-blink 0.75s step-end infinite;">|</span>
+          </span>
         </h1>
 
         <p id="hero-p" class="text-slate-300 text-lg leading-relaxed mb-10">
@@ -117,7 +123,7 @@
               <!-- FRENTE -->
               <div class="cert-card-face cert-card-front absolute inset-0 rounded-2xl overflow-hidden"
                 style="background:linear-gradient(160deg,#0D2F7A 0%,#061A4A 100%); border:1px solid rgba(96,165,250,0.30);">
-                  <img src="/images/inicio/card-retie.webp" alt="RETIE" class="w-full object-cover" style="height:58%;" />
+                  <Image src={cardRetieImage} alt="RETIE" class="w-full object-cover" style="height:58%;" loading="eager" />
                 <!-- <div class="w-full flex items-center justify-center" style="height:58%; background:linear-gradient(135deg,rgba(96,165,250,0.10) 0%,rgba(16,40,100,0.45) 100%); border-bottom:1px solid rgba(96,165,250,0.15);">
                   <div class="flex flex-col items-center gap-2" style="opacity:0.35;">
                     <svg class="w-11 h-11" style="color:#93C5FD;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
@@ -164,7 +170,7 @@
                 style="background:linear-gradient(160deg,#7C2D12 0%,#431407 100%); border:1px solid rgba(252,211,77,0.28);">
                 
                   
-                  <img src="/images/inicio/card-retilap.webp" alt="RETILAP" class="w-full object-cover" style="height:58%;" />
+                  <Image src={cardRetilapImage} alt="RETILAP" class="w-full object-cover" style="height:58%;" loading="eager" />
                
                 <!-- <div class="w-full flex items-center justify-center" style="height:58%; background:linear-gradient(135deg,rgba(252,211,77,0.09) 0%,rgba(120,45,18,0.45) 100%); border-bottom:1px solid rgba(252,211,77,0.14);">
                   <div class="flex flex-col items-center gap-2" style="opacity:0.35;">
@@ -211,7 +217,7 @@
                 style="background:linear-gradient(160deg,#064E3B 0%,#022C22 100%); border:1px solid rgba(52,211,153,0.28);">
                 
                 
-                  <img src="/images/inicio/card-retiq.webp" alt="RETIQ" class="w-full object-cover" style="height:58%;" />
+                  <Image src={cardRetiqImage} alt="RETIQ" class="w-full object-cover" style="height:58%;" loading="eager" />
                
                 <!-- <div class="w-full flex items-center justify-center" style="height:58%; background:linear-gradient(135deg,rgba(52,211,153,0.09) 0%,rgba(6,78,59,0.45) 100%); border-bottom:1px solid rgba(52,211,153,0.14);">
                   <div class="flex flex-col items-center gap-2" style="opacity:0.35;">
@@ -256,7 +262,7 @@
                 style="background:linear-gradient(160deg,#4C1D95 0%,#2E1065 100%); border:1px solid rgba(167,139,250,0.28);">
                 
                   
-                  <img src="/images/inicio/card-nv.webp" alt="Normas Voluntarias" class="w-full object-cover" style="height:58%;" />
+                  <Image src={cardNvImage} alt="Normas Voluntarias" class="w-full object-cover" style="height:58%;" loading="eager" />
                
                 <!-- <div class="w-full flex items-center justify-center" style="height:58%; background:linear-gradient(135deg,rgba(167,139,250,0.09) 0%,rgba(76,29,149,0.45) 100%); border-bottom:1px solid rgba(167,139,250,0.14);">
                   <div class="flex flex-col items-center gap-2" style="opacity:0.35;">
@@ -337,6 +343,10 @@
   .cert-card-back {
     transform: rotateY(180deg);
   }
+  @keyframes tw-blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
 </style>
 
 <script>
@@ -363,6 +373,58 @@
     .to('#hero-visual',      { opacity: 1, duration: 0.50 }, 0.50)
     .add(initDeck, 0.80);
 
+  // ─── Typewriter: rota palabras en el h1 ────────────────────────────────
+  const typeword = document.getElementById('hero-typeword');
+  if (typeword) {
+    const words = [
+      'Tableros Eléctricos',
+      'Luminarias LED',
+      'Motores',
+      'Enchufes',
+      'Transformadores',
+      'Sistemas Iluminacion',
+      'Postes Concreto',
+    ];
+
+    let wordIdx = 0;
+    let charIdx = 0;
+    let deleting = false;
+
+    const typeSpeed = 68;
+    const deleteSpeed = 38;
+    const holdDelay = 1400;
+    const restartDelay = 200;
+
+    const tick = () => {
+      const currentWord = words[wordIdx];
+
+      if (!deleting) {
+        charIdx++;
+        typeword.textContent = currentWord.slice(0, charIdx);
+        if (charIdx === currentWord.length) {
+          deleting = true;
+          window.setTimeout(tick, holdDelay);
+          return;
+        }
+        window.setTimeout(tick, typeSpeed);
+        return;
+      }
+
+      charIdx--;
+      typeword.textContent = currentWord.slice(0, charIdx);
+      if (charIdx === 0) {
+        deleting = false;
+        wordIdx = (wordIdx + 1) % words.length;
+        window.setTimeout(tick, restartDelay);
+        return;
+      }
+      window.setTimeout(tick, deleteSpeed);
+    };
+
+    // Inicia después de que el h1 sea visible (≈0.8s del timeline)
+    window.setTimeout(tick, 1000);
+  }
+
   // ─── Card Deck ────────────────────────────────────────────────────────
   var cards       = Array.from(document.querySelectorAll<HTMLElement>('.cert-card'));
   var order       = [0, 1, 2, 3];  // order[0] = índice de la carta en el tope
@@ -370,7 +432,7 @@
   var wasDragged  = false;
   var drags: Draggable[] = [];
   var autoplayTimer: number | undefined;
-  var AUTOPLAY_DELAY = 3000;
+  var AUTOPLAY_DELAY = 3500;
 
   // Posiciones de apilado para cada slot (0 = tope)
   var STACK = [
