@@ -308,11 +308,16 @@ import Footer from '../components/Footer.astro';
 
   // Helper: anima un grupo de elementos al entrar al viewport
   function animateOnScroll(targets: string, options: gsap.TweenVars = {}) {
-    const els = document.querySelectorAll(targets);
+    const els = Array.from(document.querySelectorAll<HTMLElement>(targets));
     if (!els.length) return;
+    const triggerEl = els[0];
+    if (triggerEl.getBoundingClientRect().top < window.innerHeight * 0.9) {
+      gsap.set(els, { opacity: 1, y: 0, x: 0 });
+      return;
+    }
     gsap.set(els, { opacity: 0, y: options.y ?? 30 });
     ScrollTrigger.create({
-      trigger: els[0] as Element,
+      trigger: triggerEl,
       start: 'top 90%',
       once: true,
       onEnter: () => {
@@ -325,11 +330,6 @@ import Footer from '../components/Footer.astro';
       },
     });
   }
-
-  // ── Hero: animación al cargar (sin scroll) ──────────────────────────────
-  const heroEls = document.querySelectorAll('#nos-breadcrumb, #nos-hero-content > *');
-  gsap.set(heroEls, { opacity: 0, y: 20 });
-  gsap.to(heroEls, { opacity: 1, y: 0, duration: dur, ease, stagger: 0.12, delay: 0.15 });
 
   // ── Misión / Visión ─────────────────────────────────────────────────────
   animateOnScroll('#nos-mv-grid > div', { stagger: 0.15 });

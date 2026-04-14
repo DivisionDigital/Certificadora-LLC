@@ -311,11 +311,16 @@ const steps = [
   const dur = 0.6;
 
   function animateOnScroll(targets: string, opts: { y?: number; stagger?: number; x?: number } = {}) {
-    const els = document.querySelectorAll(targets);
+    const els = Array.from(document.querySelectorAll<HTMLElement>(targets));
     if (!els.length) return;
+    const triggerEl = els[0];
+    if (triggerEl.getBoundingClientRect().top < window.innerHeight * 0.9) {
+      gsap.set(els, { opacity: 1, y: 0, x: 0 });
+      return;
+    }
     gsap.set(els, { opacity: 0, y: opts.y ?? 30, x: opts.x ?? 0 });
     ScrollTrigger.create({
-      trigger: els[0] as Element,
+      trigger: triggerEl,
       start: 'top 90%',
       once: true,
       onEnter: () => {
@@ -323,11 +328,6 @@ const steps = [
       },
     });
   }
-
-  // ── Hero: al cargar ─────────────────────────────────────────────────────
-  const heroEls = document.querySelectorAll('#cert-breadcrumb, #cert-hero-content > *');
-  gsap.set(heroEls, { opacity: 0, y: 20 });
-  gsap.to(heroEls, { opacity: 1, y: 0, duration: dur, ease, stagger: 0.12, delay: 0.15 });
 
   // ── Sección ONAC: texto desde izquierda, card desde derecha ─────────────
   animateOnScroll('#cert-onac-text', { x: -30, y: 0 });

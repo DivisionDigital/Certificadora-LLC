@@ -1,1 +1,3 @@
-/* /index.html 200
+# No catch-all rewrite is needed for this Astro static site.
+# Cloudflare rejects "/* /index.html 200" because it can loop with
+# its automatic /index.html and extensionless URL normalization.
